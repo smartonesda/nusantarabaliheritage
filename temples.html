@@ -200,74 +200,132 @@
           </div>
         </div>
 
-        <!-- Tips untuk Pengunjung Pura (Redesigned - Soft) -->
-        <div class="reveal mt-10 tips-container">
-          <div class="tips-header">
-            <span>💡</span>
+        <!-- Tips untuk Pengunjung Pura (Modern Design) -->
+        <div class="reveal mt-10 tips-modern">
+          <div class="tips-modern-header">
+            <span class="tips-icon-main">🏛️</span>
             <h2>Tips Mengunjungi Pura</h2>
           </div>
-          <div class="tips-grid">
-            <div class="tips-column recommended">
-              <div class="tips-column-header">
-                <span>✨</span> Disarankan
-              </div>
-              <ul class="tips-list">
-                <li class="tips-item">
-                  <div class="tips-icon">👔</div>
-                  <div class="tips-content">
-                    <p class="tips-text">Mengenakan kain sarung dan selendang</p>
-                  </div>
-                </li>
-                <li class="tips-item">
-                  <div class="tips-icon">🙏</div>
-                  <div class="tips-content">
-                    <p class="tips-text">Menundukkan kepala saat ada pemangku lewat</p>
-                  </div>
-                </li>
-                <li class="tips-item">
-                  <div class="tips-icon">👟</div>
-                  <div class="tips-content">
-                    <p class="tips-text">Melepas alas kaki di area tertentu</p>
-                  </div>
-                </li>
-                <li class="tips-item">
-                  <div class="tips-icon">🤫</div>
-                  <div class="tips-content">
-                    <p class="tips-text">Berbicara dengan suara pelan</p>
-                  </div>
-                </li>
-              </ul>
+
+          <!-- Tab Navigation -->
+          <div class="tips-tabs">
+            <button class="tips-tab tab-do is-active" data-tab="do">
+              <span class="tips-tab-icon">✅</span>
+              <span>Disarankan</span>
+            </button>
+            <button class="tips-tab tab-dont" data-tab="dont">
+              <span class="tips-tab-icon">⚠️</span>
+              <span>Dihindari</span>
+            </button>
+          </div>
+
+          <!-- Do's Content -->
+          <div class="tips-tab-content tips-do is-active" data-content="do">
+            <ul class="tips-modern-list">
+              <li class="tips-modern-item">
+                <div class="tips-item-header">
+                  <div class="tips-item-icon">👔</div>
+                  <span class="tips-item-title">Mengenakan kain sarung dan selendang</span>
+                  <span class="tips-item-expand">▼</span>
+                </div>
+                <div class="tips-item-detail">
+                  <p>Sarung dan selendang adalah tanda penghormatan. Biasanya tersedia untuk dipinjam di pintu masuk
+                    pura.</p>
+                </div>
+              </li>
+              <li class="tips-modern-item">
+                <div class="tips-item-header">
+                  <div class="tips-item-icon">🙏</div>
+                  <span class="tips-item-title">Menundukkan kepala saat ada pemangku lewat</span>
+                  <span class="tips-item-expand">▼</span>
+                </div>
+                <div class="tips-item-detail">
+                  <p>Pemangku adalah pemimpin spiritual. Menunduk adalah bentuk penghormatan dan pengakuan akan status
+                    suci mereka.</p>
+                </div>
+              </li>
+              <li class="tips-modern-item">
+                <div class="tips-item-header">
+                  <div class="tips-item-icon">👟</div>
+                  <span class="tips-item-title">Melepas alas kaki di area tertentu</span>
+                  <span class="tips-item-expand">▼</span>
+                </div>
+                <div class="tips-item-detail">
+                  <p>Area jeroan (zona paling suci) biasanya mengharuskan pengunjung melepas alas kaki sebagai tanda
+                    kesucian.</p>
+                </div>
+              </li>
+              <li class="tips-modern-item">
+                <div class="tips-item-header">
+                  <div class="tips-item-icon">🤫</div>
+                  <span class="tips-item-title">Berbicara dengan suara pelan</span>
+                  <span class="tips-item-expand">▼</span>
+                </div>
+                <div class="tips-item-detail">
+                  <p>Suasana pura harus tetap tenang dan khidmat. Hindari berbicara keras atau tertawa berlebihan.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Don'ts Content -->
+          <div class="tips-tab-content tips-dont" data-content="dont">
+            <ul class="tips-modern-list">
+              <li class="tips-modern-item">
+                <div class="tips-item-header">
+                  <div class="tips-item-icon">🩸</div>
+                  <span class="tips-item-title">Memasuki pura saat menstruasi atau luka terbuka</span>
+                  <span class="tips-item-expand">▼</span>
+                </div>
+                <div class="tips-item-detail">
+                  <p>Dalam kepercayaan Bali, darah dianggap dapat mengganggu kesucian area pura. Ini adalah tradisi yang
+                    dihormati.</p>
+                </div>
+              </li>
+              <li class="tips-modern-item">
+                <div class="tips-item-header">
+                  <div class="tips-item-icon">📸</div>
+                  <span class="tips-item-title">Memotret area terlarang atau upacara privat</span>
+                  <span class="tips-item-expand">▼</span>
+                </div>
+                <div class="tips-item-detail">
+                  <p>Beberapa ritual bersifat sakral dan privat. Selalu minta izin dan perhatikan tanda larangan foto.
+                  </p>
+                </div>
+              </li>
+              <li class="tips-modern-item">
+                <div class="tips-item-header">
+                  <div class="tips-item-icon">👆</div>
+                  <span class="tips-item-title">Menunjuk dengan tangan kiri atau kaki</span>
+                  <span class="tips-item-expand">▼</span>
+                </div>
+                <div class="tips-item-detail">
+                  <p>Tangan kiri dan kaki dianggap tidak sopan dalam budaya Bali. Gunakan tangan kanan atau tunjuk
+                    dengan seluruh telapak tangan.</p>
+                </div>
+              </li>
+              <li class="tips-modern-item">
+                <div class="tips-item-header">
+                  <div class="tips-item-icon">🧍</div>
+                  <span class="tips-item-title">Berdiri lebih tinggi dari altar atau pemangku</span>
+                  <span class="tips-item-expand">▼</span>
+                </div>
+                <div class="tips-item-detail">
+                  <p>Posisi yang lebih tinggi dari objek suci atau pemimpin spiritual dianggap tidak sopan. Duduk atau
+                    menunduk saat diperlukan.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Progress Tracker -->
+          <div class="tips-progress">
+            <div class="tips-progress-label">
+              <span class="tips-progress-text">Tips yang telah dibaca</span>
+              <span class="tips-progress-count">0/8</span>
             </div>
-            <div class="tips-column avoid">
-              <div class="tips-column-header">
-                <span>🙏</span> Sebaiknya Dihindari
-              </div>
-              <ul class="tips-list">
-                <li class="tips-item">
-                  <div class="tips-icon">🩸</div>
-                  <div class="tips-content">
-                    <p class="tips-text">Memasuki pura saat menstruasi atau luka terbuka</p>
-                  </div>
-                </li>
-                <li class="tips-item">
-                  <div class="tips-icon">📸</div>
-                  <div class="tips-content">
-                    <p class="tips-text">Memotret area terlarang atau upacara privat</p>
-                  </div>
-                </li>
-                <li class="tips-item">
-                  <div class="tips-icon">👆</div>
-                  <div class="tips-content">
-                    <p class="tips-text">Menunjuk dengan tangan kiri atau kaki</p>
-                  </div>
-                </li>
-                <li class="tips-item">
-                  <div class="tips-icon">🧍</div>
-                  <div class="tips-content">
-                    <p class="tips-text">Berdiri lebih tinggi dari altar atau pemangku</p>
-                  </div>
-                </li>
-              </ul>
+            <div class="tips-progress-bar">
+              <div class="tips-progress-fill"></div>
             </div>
           </div>
         </div>

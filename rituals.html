@@ -215,62 +215,111 @@
           </article>
         </div>
 
-        <!-- Tips untuk Pengunjung (Redesigned - Soft) -->
-        <div class="reveal mt-10 tips-container">
-          <div class="tips-header">
-            <span>💡</span>
+        <!-- Tips untuk Pengunjung (Modern Design) -->
+        <div class="reveal mt-10 tips-modern">
+          <div class="tips-modern-header">
+            <span class="tips-icon-main">💡</span>
             <h2>Tips untuk Pengunjung</h2>
           </div>
-          <div class="tips-grid">
-            <div class="tips-column recommended">
-              <div class="tips-column-header">
-                <span>✨</span> Disarankan
-              </div>
-              <ul class="tips-list">
-                <li class="tips-item">
-                  <div class="tips-icon">👔</div>
-                  <div class="tips-content">
-                    <p class="tips-text">Berpakaian sopan dan tertutup</p>
-                  </div>
-                </li>
-                <li class="tips-item">
-                  <div class="tips-icon">🙏</div>
-                  <div class="tips-content">
-                    <p class="tips-text">Menghormati upacara dari kejauhan</p>
-                  </div>
-                </li>
-                <li class="tips-item">
-                  <div class="tips-icon">❓</div>
-                  <div class="tips-content">
-                    <p class="tips-text">Bertanya sebelum mendokumentasikan</p>
-                  </div>
-                </li>
-              </ul>
+
+          <!-- Tab Navigation -->
+          <div class="tips-tabs">
+            <button class="tips-tab tab-do is-active" data-tab="do">
+              <span class="tips-tab-icon">✅</span>
+              <span>Disarankan</span>
+            </button>
+            <button class="tips-tab tab-dont" data-tab="dont">
+              <span class="tips-tab-icon">⚠️</span>
+              <span>Dihindari</span>
+            </button>
+          </div>
+
+          <!-- Do's Content -->
+          <div class="tips-tab-content tips-do is-active" data-content="do">
+            <ul class="tips-modern-list">
+              <li class="tips-modern-item">
+                <div class="tips-item-header">
+                  <div class="tips-item-icon">👔</div>
+                  <span class="tips-item-title">Berpakaian sopan dan tertutup</span>
+                  <span class="tips-item-expand">▼</span>
+                </div>
+                <div class="tips-item-detail">
+                  <p>Kenakan pakaian yang menutupi bahu dan lutut. Bawa selendang atau kain untuk menutupi bagian tubuh
+                    saat memasuki area suci.</p>
+                </div>
+              </li>
+              <li class="tips-modern-item">
+                <div class="tips-item-header">
+                  <div class="tips-item-icon">🙏</div>
+                  <span class="tips-item-title">Menghormati upacara dari kejauhan</span>
+                  <span class="tips-item-expand">▼</span>
+                </div>
+                <div class="tips-item-detail">
+                  <p>Jaga jarak yang sopan saat upacara berlangsung. Posisikan diri lebih rendah dari pemangku atau
+                    pendeta yang memimpin ritual.</p>
+                </div>
+              </li>
+              <li class="tips-modern-item">
+                <div class="tips-item-header">
+                  <div class="tips-item-icon">❓</div>
+                  <span class="tips-item-title">Bertanya sebelum mendokumentasikan</span>
+                  <span class="tips-item-expand">▼</span>
+                </div>
+                <div class="tips-item-detail">
+                  <p>Selalu minta izin sebelum mengambil foto atau video. Beberapa momen sakral tidak diperkenankan
+                    untuk didokumentasikan.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Don'ts Content -->
+          <div class="tips-tab-content tips-dont" data-content="dont">
+            <ul class="tips-modern-list">
+              <li class="tips-modern-item">
+                <div class="tips-item-header">
+                  <div class="tips-item-icon">📷</div>
+                  <span class="tips-item-title">Memotret tanpa izin</span>
+                  <span class="tips-item-expand">▼</span>
+                </div>
+                <div class="tips-item-detail">
+                  <p>Mengambil foto tanpa izin dianggap tidak sopan dan dapat mengganggu kekhidmatan upacara yang sedang
+                    berlangsung.</p>
+                </div>
+              </li>
+              <li class="tips-modern-item">
+                <div class="tips-item-header">
+                  <div class="tips-item-icon">🚷</div>
+                  <span class="tips-item-title">Memasuki area yang dibatasi</span>
+                  <span class="tips-item-expand">▼</span>
+                </div>
+                <div class="tips-item-detail">
+                  <p>Beberapa area hanya boleh dimasuki oleh pemangku atau umat Hindu. Hormati batas-batas yang sudah
+                    ditetapkan.</p>
+                </div>
+              </li>
+              <li class="tips-modern-item">
+                <div class="tips-item-header">
+                  <div class="tips-item-icon">🗣️</div>
+                  <span class="tips-item-title">Berbicara keras saat upacara</span>
+                  <span class="tips-item-expand">▼</span>
+                </div>
+                <div class="tips-item-detail">
+                  <p>Suara keras dapat mengganggu konsentrasi dan kekhidmatan ritual. Bicaralah dengan suara pelan atau
+                    berbisik.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Progress Tracker -->
+          <div class="tips-progress">
+            <div class="tips-progress-label">
+              <span class="tips-progress-text">Tips yang telah dibaca</span>
+              <span class="tips-progress-count">0/6</span>
             </div>
-            <div class="tips-column avoid">
-              <div class="tips-column-header">
-                <span>🙏</span> Sebaiknya Dihindari
-              </div>
-              <ul class="tips-list">
-                <li class="tips-item">
-                  <div class="tips-icon">📷</div>
-                  <div class="tips-content">
-                    <p class="tips-text">Memotret tanpa izin</p>
-                  </div>
-                </li>
-                <li class="tips-item">
-                  <div class="tips-icon">🚷</div>
-                  <div class="tips-content">
-                    <p class="tips-text">Memasuki area yang dibatasi</p>
-                  </div>
-                </li>
-                <li class="tips-item">
-                  <div class="tips-icon">🗣️</div>
-                  <div class="tips-content">
-                    <p class="tips-text">Berbicara keras saat upacara</p>
-                  </div>
-                </li>
-              </ul>
+            <div class="tips-progress-bar">
+              <div class="tips-progress-fill"></div>
             </div>
           </div>
         </div>

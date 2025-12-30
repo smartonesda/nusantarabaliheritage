@@ -2,6 +2,9 @@
   const $ = (q, el = document) => el.querySelector(q);
   const $$ = (q, el = document) => Array.from(el.querySelectorAll(q));
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const isMobile = window.matchMedia("(max-width: 768px)").matches ||
+    ("ontouchstart" in window) ||
+    (navigator.maxTouchPoints > 0);
 
   // ---------- Reveal ----------
   const revealEls = $$(".reveal");
@@ -283,9 +286,11 @@
   }, { threshold: 0.15 });
   scaleEls.forEach((el) => scaleObserver.observe(el));
 
-  // ---------- Parallax Effect ----------
+  // ---------- Parallax Effect (Desktop Only) ----------
   const parallaxBgs = $$(".parallax-bg");
-  if (parallaxBgs.length && !prefersReducedMotion) {
+
+  // Only enable parallax on desktop for better mobile performance
+  if (parallaxBgs.length && !prefersReducedMotion && !isMobile) {
     let ticking = false;
     window.addEventListener("scroll", () => {
       if (!ticking) {
@@ -387,10 +392,8 @@
   // PREMIUM FEATURES
   // ================================
 
-  // ---------- Custom Cursor ----------
-  const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-
-  if (!isTouchDevice) {
+  // ---------- Custom Cursor (Desktop Only) ----------
+  if (!isMobile) {
     const cursor = document.createElement("div");
     cursor.className = "custom-cursor";
     document.body.appendChild(cursor);
@@ -502,6 +505,55 @@
       card.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
     });
   });
+
+  // ---------- Modern Tips Section ----------
+  // Only initialize tips that are NOT handled by local scripts (check data attribute)
+  $$(".tips-modern:not([data-tips-local])").forEach((container) => {
+    // Tab Navigation
+    container.querySelectorAll(".tips-tab").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const targetId = tab.dataset.tab;
+
+        // Update tabs
+        container.querySelectorAll(".tips-tab").forEach((t) => t.classList.remove("is-active"));
+        tab.classList.add("is-active");
+
+        // Update content
+        container.querySelectorAll(".tips-tab-content").forEach((content) => {
+          content.classList.remove("is-active");
+        });
+        const targetContent = container.querySelector(`[data-content="${targetId}"]`);
+        if (targetContent) targetContent.classList.add("is-active");
+      });
+    });
+
+    // Expandable Items
+    container.querySelectorAll(".tips-modern-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        item.classList.toggle("is-expanded");
+        updateTipsProgress(container);
+      });
+    });
+  });
+
+  // Progress Tracking
+  function updateTipsProgress(container) {
+    if (!container) return;
+    const items = container.querySelectorAll(".tips-modern-item");
+    const expanded = container.querySelectorAll(".tips-modern-item.is-expanded");
+    const progressFill = container.querySelector(".tips-progress-fill");
+    const progressCount = container.querySelector(".tips-progress-count");
+
+    const total = items.length;
+    const current = expanded.length;
+    const percent = total > 0 ? (current / total) * 100 : 0;
+
+    if (progressFill) progressFill.style.width = `${percent}%`;
+    if (progressCount) progressCount.textContent = `${current}/${total}`;
+  }
+
+  // Initialize progress for all tips containers
+  $$(".tips-modern").forEach((container) => updateTipsProgress(container));
 
   console.log("✨ Premium Features Loaded");
 })();

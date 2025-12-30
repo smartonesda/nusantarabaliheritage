@@ -112,55 +112,109 @@
               <h2 class="font-serif text-2xl text-ash">Makna Inti</h2>
               <ul id="points" class="key-points"></ul>
             </section>
-
-            <div class="section-divider"></div>
-
-            <!-- Tips Section (Redesigned - more soft) -->
-            <section class="tips-container">
-              <div class="tips-header">
-                <span>💡</span>
-                <h2>Tips untuk Pengunjung</h2>
-              </div>
-              <div id="tipsGrid" class="tips-grid">
-                <!-- Will be populated by JS with softer language -->
-              </div>
-            </section>
-
-            <div class="section-divider"></div>
-
-            <!-- FAQ Accordion -->
-            <section>
-              <h2 class="font-serif text-2xl text-ash mb-2">❓ Pertanyaan Umum</h2>
-              <p class="text-sm text-ash/60 mb-4">Klik pertanyaan untuk melihat jawaban</p>
-              <div id="faqContainer" class="faq-accordion">
-                <!-- Will be populated by JS -->
-              </div>
-            </section>
-
-            <!-- Social Share -->
-            <div class="social-share">
-              <span class="social-share-label">Bagikan:</span>
-              <button class="share-btn whatsapp" aria-label="Share ke WhatsApp">💬</button>
-              <button class="share-btn twitter" aria-label="Share ke Twitter">🐦</button>
-              <button class="share-btn facebook" aria-label="Share ke Facebook">👍</button>
-              <button class="share-btn copy" aria-label="Copy link">🔗</button>
-            </div>
           </div>
         </div>
-        <footer class="mt-16 pb-10 text-center text-sm text-ash/55">
-          <div class="mx-auto max-w-3xl px-4">
-            <div class="footer-line mb-6"></div>
-            <p class="leading-relaxed">
-              © <span id="year"></span> <span class="text-ash/70">Nusantara Bali Heritage</span> — Smartone.
-            </p>
-            <p class="mt-2 text-xs text-ash/45 leading-relaxed">
-              Presented with cultural respect. Visuals may be symbolic. Avoids modification of sacred symbols and
-              sensational framing.
-            </p>
-          </div>
-        </footer>
       </div>
     </article>
+
+    <!-- Tips & FAQ Section (Separate from Article) -->
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 mt-8">
+
+      <!-- Tips Section (Modern Design) -->
+      <section id="tipsModern" class="tips-modern reveal" data-tips-local>
+        <div class="tips-modern-header">
+          <span class="tips-icon-main">💡</span>
+          <h2>Tips untuk Pengunjung</h2>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tips-tabs">
+          <button class="tips-tab tab-do is-active" data-tab="do">
+            <span class="tips-tab-icon">✅</span>
+            <span>Disarankan</span>
+          </button>
+          <button class="tips-tab tab-dont" data-tab="dont">
+            <span class="tips-tab-icon">⚠️</span>
+            <span>Dihindari</span>
+          </button>
+        </div>
+
+        <!-- Content will be populated by JS -->
+        <div id="tipsDoContent" class="tips-tab-content tips-do is-active" data-content="do">
+          <ul id="tipsDoList" class="tips-modern-list"></ul>
+        </div>
+        <div id="tipsDontContent" class="tips-tab-content tips-dont" data-content="dont">
+          <ul id="tipsDontList" class="tips-modern-list"></ul>
+        </div>
+
+        <!-- Progress Tracker -->
+        <div class="tips-progress">
+          <div class="tips-progress-label">
+            <span class="tips-progress-text">Tips yang telah dibaca</span>
+            <span class="tips-progress-count">0/0</span>
+          </div>
+          <div class="tips-progress-bar">
+            <div class="tips-progress-fill"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Accordion -->
+      <section class="reveal mt-8 rounded-3xl border border-gold/15 bg-obsidian/55 p-6 shadow-deep">
+        <h2 class="font-serif text-2xl text-ash mb-2">❓ Pertanyaan Umum</h2>
+        <p class="text-sm text-ash/60 mb-4">Klik pertanyaan untuk melihat jawaban</p>
+        <div id="faqContainer" class="faq-accordion">
+          <!-- Will be populated by JS -->
+        </div>
+      </section>
+
+      <!-- Social Share Section -->
+      <section class="reveal mt-8 rounded-2xl border border-gold/15 bg-obsidian/55 p-5 shadow-deep">
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <span class="text-ash/70 text-sm font-medium">Bagikan artikel ini:</span>
+          <div class="flex items-center gap-2">
+            <button class="share-btn-modern whatsapp" aria-label="Share ke WhatsApp" data-share="whatsapp">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </button>
+            <button class="share-btn-modern twitter" aria-label="Share ke Twitter/X" data-share="twitter">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </button>
+            <button class="share-btn-modern facebook" aria-label="Share ke Facebook" data-share="facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </button>
+            <button class="share-btn-modern copy" aria-label="Salin link" data-share="copy">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5">
+                <path
+                  d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <footer class="mt-16 pb-10 text-center text-sm text-ash/55">
+      <div class="mx-auto max-w-3xl px-4">
+        <div class="footer-line mb-6"></div>
+        <p class="leading-relaxed">
+          © <span id="year"></span> <span class="text-ash/70">Nusantara Bali Heritage</span> — Smartone.
+        </p>
+        <p class="mt-2 text-xs text-ash/45 leading-relaxed">
+          Presented with cultural respect. Visuals may be symbolic. Avoids modification of sacred symbols and
+          sensational framing.
+        </p>
+      </div>
+    </footer>
   </main>
 
   <!-- JSON-LD placeholder injected by JS -->
@@ -189,16 +243,16 @@
         ],
         ethics: {
           dos: [
-            { icon: "👔", text: "Berpakaian sopan dan tertutup (sebaiknya putih atau gelap)" },
-            { icon: "🙏", text: "Menghormati upacara dari jarak yang pantas" },
-            { icon: "❓", text: "Bertanya kepada pemandu lokal sebelum mendokumentasikan" },
-            { icon: "🤫", text: "Berbicara dengan suara pelan dan tenang" }
+            { icon: "👔", text: "Berpakaian sopan dan tertutup (sebaiknya putih atau gelap)", detail: "Warna putih melambangkan kesucian dan kesedihan, sementara warna gelap menunjukkan penghormatan. Hindari pakaian mencolok atau terlalu kasual." },
+            { icon: "🙏", text: "Menghormati upacara dari jarak yang pantas", detail: "Berdiri di belakang keluarga yang berduka dan jaga jarak minimal 5-10 meter dari prosesi utama. Ini menunjukkan empati tanpa mengganggu." },
+            { icon: "❓", text: "Bertanya kepada pemandu lokal sebelum mendokumentasikan", detail: "Setiap keluarga memiliki aturan berbeda tentang dokumentasi. Pemandu lokal dapat membantu menjelaskan momen yang boleh dan tidak boleh difoto." },
+            { icon: "🤫", text: "Berbicara dengan suara pelan dan tenang", detail: "Suasana upacara sangat khidmat. Berbisik dan hindari percakapan yang tidak perlu selama prosesi berlangsung." }
           ],
           donts: [
-            { icon: "📷", text: "Memotret bagian sensitif atau jenazah tanpa izin" },
-            { icon: "🚷", text: "Memasuki area upacara yang dibatasi" },
-            { icon: "📱", text: "Menggunakan flash kamera atau drone" },
-            { icon: "🗣️", text: "Berbicara keras atau tertawa berlebihan" }
+            { icon: "📷", text: "Memotret bagian sensitif atau jenazah tanpa izin", detail: "Mendokumentasikan jenazah atau momen-momen privat keluarga sangat tidak sopan dan dapat menyinggung perasaan keluarga yang berduka." },
+            { icon: "🚷", text: "Memasuki area upacara yang dibatasi", detail: "Beberapa area hanya untuk keluarga dan pemangku. Perhatikan tanda-tanda atau ikuti petunjuk warga setempat tentang area yang boleh diakses." },
+            { icon: "📱", text: "Menggunakan flash kamera atau drone", detail: "Flash dapat mengganggu kekhidmatan upacara. Drone dianggap tidak menghormati kesucian prosesi dan dapat ditolak oleh masyarakat." },
+            { icon: "🗣️", text: "Berbicara keras atau tertawa berlebihan", detail: "Meski Ngaben merayakan pelepasan, tertawa berlebihan tetap dianggap tidak menghormati kesedihan keluarga yang ditinggalkan." }
           ]
         },
         faq: [
@@ -227,16 +281,16 @@
         ],
         ethics: {
           dos: [
-            { icon: "👔", text: "Mengenakan pakaian adat jika diundang ke pura" },
-            { icon: "🎁", text: "Membawa oleh-oleh sederhana jika berkunjung ke rumah warga" },
-            { icon: "📸", text: "Meminta izin sebelum memotret upacara atau sesaji" },
-            { icon: "🙏", text: "Menunjukkan sikap hormat saat prosesi berlangsung" }
+            { icon: "👔", text: "Mengenakan pakaian adat jika diundang ke pura", detail: "Kenakan kebaya, sarung, dan selendang (untuk wanita) atau kamen dan udeng (untuk pria). Warna cerah seperti kuning dianjurkan saat Kuningan." },
+            { icon: "🎁", text: "Membawa oleh-oleh sederhana jika berkunjung ke rumah warga", detail: "Buah-buahan, kue tradisional, atau minuman kemasan adalah pilihan yang umum. Ini menunjukkan rasa terima kasih atas keramahan tuan rumah." },
+            { icon: "📸", text: "Meminta izin sebelum memotret upacara atau sesaji", detail: "Penjor dan sesaji boleh difoto, tapi hindari memotret saat orang sedang berdoa tanpa izin. Tanyakan dengan sopan terlebih dahulu." },
+            { icon: "🙏", text: "Menunjukkan sikap hormat saat prosesi berlangsung", detail: "Berhenti sejenak jika melewati prosesi, tundukkan kepala, dan jangan memotong jalur iring-iringan upacara." }
           ],
           donts: [
-            { icon: "🩸", text: "Memasuki pura saat sedang menstruasi atau ada luka terbuka" },
-            { icon: "🚶", text: "Berdiri lebih tinggi dari pendeta saat upacara" },
-            { icon: "👆", text: "Menunjuk dengan jari telunjuk ke arah sesaji atau patung" },
-            { icon: "🦶", text: "Menginjak atau melangkahi sesaji di jalan" }
+            { icon: "🩸", text: "Memasuki pura saat sedang menstruasi atau ada luka terbuka", detail: "Dalam kepercayaan Hindu Bali, darah dianggap dapat mengganggu kesucian area pura. Ini adalah tradisi yang dihormati secara luas." },
+            { icon: "🚶", text: "Berdiri lebih tinggi dari pendeta saat upacara", detail: "Duduk atau jongkok jika pendeta atau sesaji berada di posisi rendah. Ini menunjukkan penghormatan terhadap yang suci." },
+            { icon: "👆", text: "Menunjuk dengan jari telunjuk ke arah sesaji atau patung", detail: "Gunakan seluruh telapak tangan jika perlu menunjuk sesuatu. Jari telunjuk dianggap tidak sopan dalam budaya Bali." },
+            { icon: "🦶", text: "Menginjak atau melangkahi sesaji di jalan", detail: "Sesaji (canang) yang diletakkan di jalan adalah persembahan kepada Tuhan. Menginjak atau melangkahinya dianggap tidak menghormati yang suci." }
           ]
         },
         faq: [
@@ -265,16 +319,16 @@
         ],
         ethics: {
           dos: [
-            { icon: "👏", text: "Bertepuk tangan di akhir pertunjukan sebagai apresiasi" },
-            { icon: "🪑", text: "Duduk di tempat yang disediakan panitia" },
-            { icon: "📸", text: "Memotret tanpa flash agar tidak mengganggu penari" },
-            { icon: "⏰", text: "Datang tepat waktu untuk menghormati pertunjukan" }
+            { icon: "👏", text: "Bertepuk tangan di akhir pertunjukan sebagai apresiasi", detail: "Tepuk tangan yang meriah menunjukkan apresiasi dan memberi semangat kepada para penari yang telah tampil selama 1-2 jam." },
+            { icon: "🪑", text: "Duduk di tempat yang disediakan panitia", detail: "Tempat duduk diatur agar semua penonton dapat menikmati pertunjukan. Berpindah-pindah dapat mengganggu penonton lain." },
+            { icon: "📸", text: "Memotret tanpa flash agar tidak mengganggu penari", detail: "Mode tanpa flash atau mode malam pada kamera/HP dapat menghasilkan foto bagus tanpa menyilaukan mata penari." },
+            { icon: "⏰", text: "Datang tepat waktu untuk menghormati pertunjukan", detail: "Pertunjukan Kecak dimulai saat matahari terbenam. Datang 15-30 menit lebih awal untuk mendapat tempat terbaik." }
           ],
           donts: [
-            { icon: "📱", text: "Menggunakan flash kamera yang dapat mengganggu penari" },
-            { icon: "🗣️", text: "Berbicara keras selama pertunjukan berlangsung" },
-            { icon: "🚶", text: "Berjalan-jalan di area pertunjukan saat sedang berlangsung" },
-            { icon: "🔥", text: "Mendekati api tanpa izin saat adegan Hanoman" }
+            { icon: "📱", text: "Menggunakan flash kamera yang dapat mengganggu penari", detail: "Flash dapat menyilaukan dan mengacaukan konsentrasi penari, terutama saat adegan dramatis dengan api." },
+            { icon: "🗣️", text: "Berbicara keras selama pertunjukan berlangsung", detail: "Koor 'cak' adalah inti pertunjukan. Suara keras dari penonton dapat mengganggu harmoni suara dan konsentrasi penari." },
+            { icon: "🚶", text: "Berjalan-jalan di area pertunjukan saat sedang berlangsung", detail: "Berjalan di depan penonton atau dekat panggung menghalangi pandangan dan mengganggu fokus penari." },
+            { icon: "🔥", text: "Mendekati api tanpa izin saat adegan Hanoman", detail: "Api dalam pertunjukan adalah nyata. Hanya penari terlatih yang boleh berinteraksi dengan api. Jaga jarak aman." }
           ]
         },
         faq: [
@@ -301,16 +355,16 @@
         ],
         ethics: {
           dos: [
-            { icon: "🙏", text: "Menghormati topeng Barong sebagai benda sakral" },
-            { icon: "👏", text: "Memberikan apresiasi kepada penari setelah pertunjukan" },
-            { icon: "📖", text: "Mempelajari konteks cerita sebelum menonton" },
-            { icon: "🧘", text: "Menyaksikan dengan pikiran terbuka" }
+            { icon: "🙏", text: "Menghormati topeng Barong sebagai benda sakral", detail: "Topeng yang digunakan dalam upacara memiliki kekuatan spiritual. Jangan menyentuh, bahkan topeng untuk pertunjukan wisata harus dihormati." },
+            { icon: "👏", text: "Memberikan apresiasi kepada penari setelah pertunjukan", detail: "Tepuk tangan dan kata-kata positif sangat dihargai. Anda juga bisa memberikan tip jika tersedia wadahnya." },
+            { icon: "📖", text: "Mempelajari konteks cerita sebelum menonton", detail: "Memahami kisah Barong vs Rangda membuat pengalaman menonton lebih bermakna. Banyak lokasi menyediakan sinopsis." },
+            { icon: "🧘", text: "Menyaksikan dengan pikiran terbuka", detail: "Beberapa penari mungkin mengalami trance (kesurupan). Ini bagian dari tradisi spiritual, bukan pertunjukan semata." }
           ],
           donts: [
-            { icon: "👆", text: "Menyentuh topeng atau kostum tanpa izin" },
-            { icon: "😂", text: "Menertawakan gerakan atau ekspresi penari" },
-            { icon: "🏃", text: "Berlari ke area panggung saat pertunjukan" },
-            { icon: "📢", text: "Membuat komentar yang merendahkan kepercayaan" }
+            { icon: "👆", text: "Menyentuh topeng atau kostum tanpa izin", detail: "Kostum dan topeng terutama yang sakral tidak boleh disentuh sembarangan. Izin dari pemangku atau penari diperlukan." },
+            { icon: "😂", text: "Menertawakan gerakan atau ekspresi penari", detail: "Gerakan yang terlihat 'lucu' seringkali memiliki makna spiritual. Menertawakan dapat dianggap tidak sopan." },
+            { icon: "🏃", text: "Berlari ke area panggung saat pertunjukan", detail: "Terutama saat penari dalam keadaan trance, mendekati panggung bisa berbahaya dan mengganggu prosesi." },
+            { icon: "📢", text: "Membuat komentar yang merendahkan kepercayaan", detail: "Kritik atau lelucon tentang kepercayaan lokal sangat tidak pantas, bahkan jika dimaksudkan bercanda." }
           ]
         },
         faq: [
@@ -337,16 +391,16 @@
         ],
         ethics: {
           dos: [
-            { icon: "👀", text: "Memperhatikan detail gerakan mata dan tangan penari" },
-            { icon: "🤫", text: "Menjaga keheningan selama pertunjukan" },
-            { icon: "📖", text: "Membaca sinopsis cerita yang biasanya disediakan" },
-            { icon: "👏", text: "Memberikan tepuk tangan di akhir pertunjukan" }
+            { icon: "👀", text: "Memperhatikan detail gerakan mata dan tangan penari", detail: "Gerakan mata (seledet) dan jari (ngegol) menyampaikan emosi karakter. Fokus pada detail ini untuk menangkap cerita." },
+            { icon: "🤫", text: "Menjaga keheningan selama pertunjukan", detail: "Tarian Legong sangat halus dan musiknya lembut. Suara percakapan dapat mengganggu konsentrasi penari dan penonton lain." },
+            { icon: "📖", text: "Membaca sinopsis cerita yang biasanya disediakan", detail: "Legong menceritakan kisah dengan bahasa tubuh. Sinopsis membantu memahami alur dan karakter yang ditampilkan." },
+            { icon: "👏", text: "Memberikan tepuk tangan di akhir pertunjukan", detail: "Penari Legong berlatih bertahun-tahun untuk mencapai presisi. Apresiasi Anda sangat berarti bagi mereka." }
           ],
           donts: [
-            { icon: "📱", text: "Mengobrol atau bermain ponsel saat pertunjukan" },
-            { icon: "🚶", text: "Berjalan keluar-masuk selama tarian berlangsung" },
-            { icon: "📸", text: "Menggunakan flash yang mengganggu konsentrasi penari" },
-            { icon: "😴", text: "Menunjukkan kebosanan secara terang-terangan" }
+            { icon: "📱", text: "Mengobrol atau bermain ponsel saat pertunjukan", detail: "Layar ponsel terang dan suara notifikasi sangat mengganggu di ruangan yang tenang saat pertunjukan." },
+            { icon: "🚶", text: "Berjalan keluar-masuk selama tarian berlangsung", detail: "Legong biasanya berdurasi 30-60 menit. Jika perlu keluar, tunggu jeda antara segmen jika ada." },
+            { icon: "📸", text: "Menggunakan flash yang mengganggu konsentrasi penari", detail: "Gerakan mata adalah inti Legong. Flash dapat menyilaukan dan mengacaukan konsentrasi penari." },
+            { icon: "😴", text: "Menunjukkan kebosanan secara terang-terangan", detail: "Menguap, gelisah, atau berbicara bosan dapat menyinggung penari yang bekerja keras tampil untuk Anda." }
           ]
         },
         faq: [
@@ -373,16 +427,16 @@
         ],
         ethics: {
           dos: [
-            { icon: "🤔", text: "Memahami bahwa ada makna di balik setiap tindakan" },
-            { icon: "🙏", text: "Menghormati praktik spiritual meski tidak memahami sepenuhnya" },
-            { icon: "❓", text: "Bertanya dengan sopan jika ingin mengetahui makna" },
-            { icon: "👀", text: "Mengamati dengan pikiran terbuka" }
+            { icon: "🤔", text: "Memahami bahwa ada makna di balik setiap tindakan", detail: "Sesaji kecil di jalan, posisi patung, warna bunga — semuanya memiliki arti. Lihat dengan rasa ingin tahu, bukan skeptis." },
+            { icon: "🙏", text: "Menghormati praktik spiritual meski tidak memahami sepenuhnya", detail: "Anda tidak harus memahami segalanya untuk menghormati. Sikap rendah hati lebih dihargai daripada pertanyaan sinis." },
+            { icon: "❓", text: "Bertanya dengan sopan jika ingin mengetahui makna", detail: "Warga lokal biasanya senang menjelaskan jika ditanya dengan sopan. Hindari nada menggurui atau menghakimi." },
+            { icon: "👀", text: "Mengamati dengan pikiran terbuka", detail: "Praktik yang terlihat 'aneh' bagi Anda mungkin sangat bermakna bagi masyarakat lokal. Amati dulu, pahami kemudian." }
           ],
           donts: [
-            { icon: "😱", text: "Menyebut praktik spiritual sebagai 'mistis' atau 'seram'" },
-            { icon: "📢", text: "Membuat klaim paranormal tanpa bukti" },
-            { icon: "😂", text: "Menertawakan kepercayaan yang tidak dipahami" },
-            { icon: "📷", text: "Mendokumentasikan upacara pribadi tanpa izin" }
+            { icon: "😱", text: "Menyebut praktik spiritual sebagai 'mistis' atau 'seram'", detail: "Label ini merendahkan dan menyalahpahami. Niskala adalah dimensi makna, bukan cerita hantu." },
+            { icon: "📢", text: "Membuat klaim paranormal tanpa bukti", detail: "Hindari menyebarkan cerita sensasional tentang pengalaman 'mistis' yang belum terverifikasi." },
+            { icon: "😂", text: "Menertawakan kepercayaan yang tidak dipahami", detail: "Apa yang terlihat 'lucu' mungkin sangat sakral. Tertawa dapat menyinggung dan menunjukkan ketidakpedulian." },
+            { icon: "📷", text: "Mendokumentasikan upacara pribadi tanpa izin", detail: "Beberapa ritual bersifat privat. Memotret tanpa izin melanggar privasi dan dapat mengganggu kekhidmatan." }
           ]
         },
         faq: [
@@ -409,16 +463,16 @@
         ],
         ethics: {
           dos: [
-            { icon: "🌍", text: "Menjaga kebersihan lingkungan saat berkunjung" },
-            { icon: "🤝", text: "Berinteraksi dengan warga lokal dengan ramah" },
-            { icon: "🙏", text: "Menghormati tempat ibadah dan upacaranya" },
-            { icon: "💰", text: "Mendukung ekonomi lokal dengan bijak" }
+            { icon: "🌍", text: "Menjaga kebersihan lingkungan saat berkunjung", detail: "Palemahan mengajarkan harmoni dengan alam. Bawa pulang sampah Anda dan hindari merusak tanaman atau terumbu karang." },
+            { icon: "🤝", text: "Berinteraksi dengan warga lokal dengan ramah", detail: "Pawongan adalah tentang hubungan antar manusia. Sapa dengan senyum, pelajari kata 'om swastiastu' (salam Bali)." },
+            { icon: "🙏", text: "Menghormati tempat ibadah dan upacaranya", detail: "Parhyangan adalah hubungan dengan Tuhan. Berpakaian sopan, berbisik, dan jangan menghalangi orang berdoa." },
+            { icon: "💰", text: "Mendukung ekonomi lokal dengan bijak", detail: "Beli dari pedagang lokal, gunakan jasa pemandu setempat. Ini memperkuat Pawongan dan ekonomi komunitas." }
           ],
           donts: [
-            { icon: "🗑️", text: "Membuang sampah sembarangan" },
-            { icon: "💢", text: "Bersikap kasar kepada warga lokal" },
-            { icon: "🏛️", text: "Merusak atau mencoret-coret situs budaya" },
-            { icon: "📢", text: "Menggunakan konsep ini sebagai slogan pemasaran semata" }
+            { icon: "🗑️", text: "Membuang sampah sembarangan", detail: "Bertentangan dengan Palemahan. Bali sudah menghadapi masalah sampah — jangan memperburuknya." },
+            { icon: "💢", text: "Bersikap kasar kepada warga lokal", detail: "Melanggar Pawongan. Sabar dan ramah adalah sikap yang dihargai, meski ada kendala bahasa." },
+            { icon: "🏛️", text: "Merusak atau mencoret-coret situs budaya", detail: "Vandalisme merusak Palemahan dan Parhyangan sekaligus. Hukuman bisa sangat berat di Indonesia." },
+            { icon: "📢", text: "Menggunakan konsep ini sebagai slogan pemasaran semata", detail: "Tri Hita Karana adalah prinsip hidup, bukan tagline. Gunakan dengan pemahaman dan kesungguhan." }
           ]
         },
         faq: [
@@ -445,16 +499,16 @@
         ],
         ethics: {
           dos: [
-            { icon: "👔", text: "Mengenakan kain sarung dan selendang" },
-            { icon: "🙏", text: "Menundukkan kepala saat melewati pemangku" },
-            { icon: "👟", text: "Melepas alas kaki di area tertentu" },
-            { icon: "🤫", text: "Berbicara dengan suara pelan" }
+            { icon: "👔", text: "Mengenakan kain sarung dan selendang", detail: "Sarung menutupi bagian bawah tubuh, selendang mengikat niat baik. Biasanya tersedia untuk disewa di pintu masuk pura." },
+            { icon: "🙏", text: "Menundukkan kepala saat melewati pemangku", detail: "Pemangku adalah pemimpin spiritual. Menunduk menunjukkan penghormatan terhadap posisi mereka yang suci." },
+            { icon: "👟", text: "Melepas alas kaki di area tertentu", detail: "Area Jeroan (paling sakral) biasanya mengharuskan telanjang kaki. Ikuti contoh umat yang sedang bersembahyang." },
+            { icon: "🤫", text: "Berbicara dengan suara pelan", detail: "Pura adalah tempat meditasi dan doa. Suara keras mengganggu ketenangan dan konsentrasi umat." }
           ],
           donts: [
-            { icon: "🩸", text: "Memasuki pura saat menstruasi atau ada luka" },
-            { icon: "📸", text: "Memotret area terlarang atau upacara privat" },
-            { icon: "👆", text: "Menunjuk dengan tangan kiri atau kaki" },
-            { icon: "🧍", text: "Berdiri lebih tinggi dari altar atau pemangku" }
+            { icon: "🩸", text: "Memasuki pura saat menstruasi atau ada luka", detail: "Dalam kepercayaan Bali, darah dapat mengganggu kesucian pura. Ini tradisi yang dihormati secara luas." },
+            { icon: "📸", text: "Memotret area terlarang atau upacara privat", detail: "Beberapa area dan ritual bersifat sakral. Perhatikan tanda larangan dan tanyakan sebelum memotret." },
+            { icon: "👆", text: "Menunjuk dengan tangan kiri atau kaki", detail: "Tangan kiri dan kaki dianggap tidak suci. Gunakan tangan kanan atau seluruh telapak tangan." },
+            { icon: "🧍", text: "Berdiri lebih tinggi dari altar atau pemangku", detail: "Posisi lebih tinggi dari yang suci dianggap tidak sopan. Duduk atau membungkuk jika perlu." }
           ]
         },
         faq: [
@@ -538,41 +592,89 @@
       ul.appendChild(li);
     });
 
-    // Tips Section (Softer Ethics - Redesigned)
-    const tipsGrid = document.querySelector("#tipsGrid");
-    if (data.ethics && typeof data.ethics === 'object' && tipsGrid) {
-      tipsGrid.innerHTML = `
-      <div class="tips-column recommended">
-        <div class="tips-column-header">
-          <span>✨</span> Disarankan
-        </div>
-        <ul class="tips-list">
-          ${data.ethics.dos.map(item => `
-            <li class="tips-item">
-              <div class="tips-icon">${item.icon}</div>
-              <div class="tips-content">
-                <p class="tips-text">${item.text}</p>
-              </div>
-            </li>
-          `).join('')}
-        </ul>
-      </div>
-      <div class="tips-column avoid">
-        <div class="tips-column-header">
-          <span>🙏</span> Sebaiknya Dihindari
-        </div>
-        <ul class="tips-list">
-          ${data.ethics.donts.map(item => `
-            <li class="tips-item">
-              <div class="tips-icon">${item.icon}</div>
-              <div class="tips-content">
-                <p class="tips-text">${item.text}</p>
-              </div>
-            </li>
-          `).join('')}
-        </ul>
-      </div>
-    `;
+    // Tips Section (Modern Design)
+    const tipsDoList = document.querySelector("#tipsDoList");
+    const tipsDontList = document.querySelector("#tipsDontList");
+    const tipsModern = document.querySelector("#tipsModern");
+
+    if (data.ethics && typeof data.ethics === 'object') {
+      // Render Do's
+      if (tipsDoList && data.ethics.dos) {
+        tipsDoList.innerHTML = data.ethics.dos.map((item, i) => `
+          <li class="tips-modern-item" data-tip="${i}">
+            <div class="tips-item-header">
+              <div class="tips-item-icon">${item.icon}</div>
+              <span class="tips-item-title">${item.text}</span>
+              <span class="tips-item-expand">▼</span>
+            </div>
+            <div class="tips-item-detail">
+              <p>${item.detail || 'Klik untuk menandai sebagai sudah dibaca.'}</p>
+            </div>
+          </li>
+        `).join('');
+      }
+
+      // Render Don'ts
+      if (tipsDontList && data.ethics.donts) {
+        tipsDontList.innerHTML = data.ethics.donts.map((item, i) => `
+          <li class="tips-modern-item" data-tip="${i}">
+            <div class="tips-item-header">
+              <div class="tips-item-icon">${item.icon}</div>
+              <span class="tips-item-title">${item.text}</span>
+              <span class="tips-item-expand">▼</span>
+            </div>
+            <div class="tips-item-detail">
+              <p>${item.detail || 'Klik untuk menandai sebagai sudah dibaca.'}</p>
+            </div>
+          </li>
+        `).join('');
+      }
+
+      // Initialize tab navigation for dynamically created tabs
+      if (tipsModern) {
+        console.log('Tips Section Found:', tipsModern);
+
+        const tabs = tipsModern.querySelectorAll('.tips-tab');
+        tabs.forEach(tab => {
+          tab.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const targetId = tab.dataset.tab;
+            tabs.forEach(t => t.classList.remove('is-active'));
+            tab.classList.add('is-active');
+            tipsModern.querySelectorAll('.tips-tab-content').forEach(content => {
+              content.classList.remove('is-active');
+            });
+            const targetContent = tipsModern.querySelector(`[data-content="${targetId}"]`);
+            if (targetContent) targetContent.classList.add('is-active');
+          });
+        });
+
+        // Initialize expandable items - use event delegation for dynamically created items
+        tipsModern.addEventListener('click', (e) => {
+          const item = e.target.closest('.tips-modern-item');
+          if (item) {
+            e.stopPropagation();
+            item.classList.toggle('is-expanded');
+            updateProgress();
+            console.log('Item clicked:', item);
+          }
+        });
+
+        // Update progress counter
+        function updateProgress() {
+          const allItems = tipsModern.querySelectorAll('.tips-modern-item');
+          const expanded = tipsModern.querySelectorAll('.tips-modern-item.is-expanded');
+          const progressFill = tipsModern.querySelector('.tips-progress-fill');
+          const progressCount = tipsModern.querySelector('.tips-progress-count');
+          const total = allItems.length;
+          const current = expanded.length;
+          const percent = total > 0 ? (current / total) * 100 : 0;
+          if (progressFill) progressFill.style.width = `${percent}%`;
+          if (progressCount) progressCount.textContent = `${current}/${total}`;
+        }
+        updateProgress();
+        console.log('Tips event handlers initialized');
+      }
     }
 
     // FAQ Accordion
@@ -649,6 +751,40 @@
     };
 
     document.querySelector("#jsonld").textContent = JSON.stringify(jsonld, null, 2);
+
+    // Social Share Button Handlers
+    document.querySelectorAll('.share-btn-modern').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const shareType = btn.dataset.share;
+        const url = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent(data.title);
+        const desc = encodeURIComponent(data.desc);
+
+        switch (shareType) {
+          case 'whatsapp':
+            window.open(`https://wa.me/?text=${title}%0A${desc}%0A${url}`, '_blank');
+            break;
+          case 'twitter':
+            window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, '_blank');
+            break;
+          case 'facebook':
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+            break;
+          case 'copy':
+            navigator.clipboard.writeText(window.location.href).then(() => {
+              // Show feedback
+              const originalHTML = btn.innerHTML;
+              btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path d="M5 13l4 4L19 7"/></svg>';
+              btn.style.color = '#25D366';
+              setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.style.color = '';
+              }, 2000);
+            });
+            break;
+        }
+      });
+    });
   </script>
 
   <!-- Back to Top Button -->
