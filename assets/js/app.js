@@ -151,15 +151,6 @@
     });
   }
 
-  // ---------- Parallax Effect ----------
-  const parallaxBg = $(".parallax-bg");
-  if (parallaxBg && !prefersReducedMotion) {
-    window.addEventListener("scroll", () => {
-      const scrolled = window.scrollY;
-      parallaxBg.style.transform = `translateY(${scrolled * 0.3}px)`;
-    }, { passive: true });
-  }
-
   // ---------- Keyboard Navigation ----------
   let usingKeyboard = false;
   document.addEventListener("keydown", (e) => {
@@ -255,4 +246,262 @@
     const readingTime = Math.ceil(wordCount / 200); // 200 words per minute
     readingTimeEl.innerHTML = `📖 ${readingTime} menit baca`;
   }
+
+  // ================================
+  // MODERN ENHANCEMENTS
+  // ================================
+
+  // ---------- Toast Notifications ----------
+  const toastContainer = document.createElement("div");
+  toastContainer.className = "toast-container";
+  document.body.appendChild(toastContainer);
+
+  window.showToast = (message, type = "info", duration = 3000) => {
+    const toast = document.createElement("div");
+    toast.className = `toast toast-${type}`;
+    toast.innerHTML = `
+      <span class="toast-icon">${type === "success" ? "✓" : "ℹ"}</span>
+      <span>${message}</span>
+    `;
+    toastContainer.appendChild(toast);
+
+    setTimeout(() => {
+      toast.classList.add("toast-out");
+      setTimeout(() => toast.remove(), 300);
+    }, duration);
+  };
+
+  // ---------- Scale Reveal ----------
+  const scaleEls = $$(".reveal-scale");
+  const scaleObserver = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("is-visible");
+        scaleObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  scaleEls.forEach((el) => scaleObserver.observe(el));
+
+  // ---------- Parallax Effect ----------
+  const parallaxBgs = $$(".parallax-bg");
+  if (parallaxBgs.length && !prefersReducedMotion) {
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          parallaxBgs.forEach((bg) => {
+            const speed = parseFloat(bg.dataset.parallaxSpeed) || 0.3;
+            bg.style.transform = `translateY(${scrollY * speed}px)`;
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // ---------- Page Transition Overlay ----------
+  const overlay = document.createElement("div");
+  overlay.className = "page-transition-overlay";
+  document.body.appendChild(overlay);
+
+  const loadingBar = document.createElement("div");
+  loadingBar.className = "loading-bar";
+  document.body.appendChild(loadingBar);
+
+  // Intercept internal link clicks
+  $$("a[href]").forEach((link) => {
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("#") || href.startsWith("http") || href.startsWith("mailto:") || link.target === "_blank") return;
+
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      overlay.classList.add("is-active");
+      loadingBar.classList.add("is-loading");
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 350);
+    });
+  });
+
+  // Fade in on page load
+  window.addEventListener("pageshow", () => {
+    overlay.classList.remove("is-active");
+    loadingBar.classList.remove("is-loading");
+  });
+
+  // ---------- Skeleton Loading Handler ----------
+  $$(".skeleton[data-skeleton-for]").forEach((skeleton) => {
+    const targetSelector = skeleton.dataset.skeletonFor;
+    const target = $(targetSelector);
+    if (target && target.complete !== undefined) {
+      // For images
+      if (target.complete) {
+        skeleton.style.display = "none";
+      } else {
+        target.style.opacity = "0";
+        target.addEventListener("load", () => {
+          skeleton.style.display = "none";
+          target.style.opacity = "1";
+          target.style.transition = "opacity 0.3s ease";
+        });
+      }
+    }
+  });
+
+  // ---------- Enhanced Audio Toggle with Toast ----------
+  if (audioBtn) {
+    const originalClickHandler = audioBtn.onclick;
+    audioBtn.addEventListener("click", () => {
+      setTimeout(() => {
+        const isOn = localStorage.getItem("audioOn") === "1";
+        showToast(isOn ? "🔊 Audio Aktif" : "🔇 Audio Dimatikan", "info", 2000);
+      }, 100);
+    });
+  }
+
+  // ---------- Magnetic Button Effect ----------
+  $$(".magnetic-btn").forEach((btn) => {
+    btn.addEventListener("mousemove", (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+    });
+
+    btn.addEventListener("mouseleave", () => {
+      btn.style.transform = "translate(0, 0)";
+    });
+  });
+
+  // ---------- Glow Pulse on Focus ----------
+  $$(".glow-pulse-focus").forEach((el) => {
+    el.addEventListener("focus", () => el.classList.add("glow-pulse"));
+    el.addEventListener("blur", () => el.classList.remove("glow-pulse"));
+  });
+
+  // ================================
+  // PREMIUM FEATURES
+  // ================================
+
+  // ---------- Custom Cursor ----------
+  const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+  if (!isTouchDevice) {
+    const cursor = document.createElement("div");
+    cursor.className = "custom-cursor";
+    document.body.appendChild(cursor);
+
+    const cursorDot = document.createElement("div");
+    cursorDot.className = "custom-cursor-dot";
+    document.body.appendChild(cursorDot);
+
+    let cursorX = 0, cursorY = 0;
+    let dotX = 0, dotY = 0;
+
+    document.addEventListener("mousemove", (e) => {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+    });
+
+    // Smooth cursor animation
+    function animateCursor() {
+      dotX += (cursorX - dotX) * 0.2;
+      dotY += (cursorY - dotY) * 0.2;
+
+      cursor.style.left = cursorX + "px";
+      cursor.style.top = cursorY + "px";
+      cursorDot.style.left = dotX + "px";
+      cursorDot.style.top = dotY + "px";
+
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Hover effect on interactive elements
+    const hoverTargets = $$("a, button, .card-3d, .card-tilt, .lightbox-trigger, input, textarea, [role='button']");
+    hoverTargets.forEach((el) => {
+      el.addEventListener("mouseenter", () => cursor.classList.add("is-hover"));
+      el.addEventListener("mouseleave", () => cursor.classList.remove("is-hover"));
+    });
+
+    // Click effect
+    document.addEventListener("mousedown", () => cursor.classList.add("is-clicking"));
+    document.addEventListener("mouseup", () => cursor.classList.remove("is-clicking"));
+  }
+
+  // ---------- Image Lightbox ----------
+  const lightboxOverlay = document.createElement("div");
+  lightboxOverlay.className = "lightbox-overlay";
+  lightboxOverlay.innerHTML = `
+    <button class="lightbox-close" aria-label="Close lightbox">×</button>
+    <img class="lightbox-image" src="" alt="" />
+    <div class="lightbox-caption"></div>
+  `;
+  document.body.appendChild(lightboxOverlay);
+
+  const lightboxImage = lightboxOverlay.querySelector(".lightbox-image");
+  const lightboxCaption = lightboxOverlay.querySelector(".lightbox-caption");
+  const lightboxClose = lightboxOverlay.querySelector(".lightbox-close");
+
+  // Add lightbox-trigger class to content images
+  $$("article img, .prose-safe img, [data-lightbox] img, img[data-lightbox]").forEach((img) => {
+    if (!img.closest("header") && !img.closest("nav") && img.naturalWidth > 200) {
+      img.classList.add("lightbox-trigger");
+    }
+  });
+
+  // Open lightbox
+  $$(`.lightbox-trigger`).forEach((img) => {
+    img.addEventListener("click", () => {
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+      lightboxCaption.textContent = img.alt || "";
+      lightboxOverlay.classList.add("is-active");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  // Close lightbox
+  function closeLightbox() {
+    lightboxOverlay.classList.remove("is-active");
+    document.body.style.overflow = "";
+  }
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightboxOverlay.addEventListener("click", (e) => {
+    if (e.target === lightboxOverlay) closeLightbox();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightboxOverlay.classList.contains("is-active")) {
+      closeLightbox();
+    }
+  });
+
+  // ---------- 3D Card Tilt Effect ----------
+  $$(".card-tilt, .card-3d").forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      if (prefersReducedMotion) return;
+
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * -8;
+      const rotateY = ((x - centerX) / centerX) * 8;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
+    });
+  });
+
+  console.log("✨ Premium Features Loaded");
 })();

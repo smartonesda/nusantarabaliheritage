@@ -115,9 +115,9 @@
   <main data-page class="page-fade relative z-[10]">
     <!-- LANDING -->
     <section id="landing" class="relative h-[100dvh] min-h-[600px] overflow-hidden flex items-center">
-      <div class="absolute inset-0">
-        <video class="h-full w-full object-cover opacity-70" autoplay muted loop playsinline
-          poster="assets/video/landing-poster.jpg">
+      <div class="parallax-container absolute inset-0">
+        <video class="parallax-bg h-full w-full object-cover opacity-70" data-parallax-speed="0.2" autoplay muted loop
+          playsinline poster="assets/video/landing-poster.jpg">
           <source src="assets/video/bali.mp4" type="video/mp4" />
         </video>
         <div class="absolute inset-0 bg-gradient-to-b from-obsidian/40 via-obsidian/70 to-obsidian"></div>
@@ -156,7 +156,7 @@
 
             <div class="reveal mt-8 flex flex-wrap items-center gap-3">
               <a href="#overview"
-                class="btn-shimmer btn-glow group inline-flex items-center gap-3 rounded-2xl border border-gold/25 bg-obsidian/35 px-5 py-3 shadow-glow transition">
+                class="btn-shimmer btn-glow magnetic-btn glow-pulse group inline-flex items-center gap-3 rounded-2xl border border-gold/25 bg-obsidian/35 px-5 py-3 shadow-glow transition">
                 <span class="font-medium" data-i18n="index.ctaStart">Mulai Perjalanan</span>
                 <span class="text-gold group-hover:translate-x-0.5 transition">→</span>
               </a>
@@ -202,7 +202,7 @@
         <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Rituals Card -->
           <a href="rituals.html"
-            class="reveal-stagger stagger-1 rounded-3xl border border-gold/15 bg-obsidian/55 p-6 shadow-deep hover:border-gold/35 hover-glow card-3d transition group">
+            class="reveal-stagger stagger-1 card-tilt rounded-3xl border border-gold/15 bg-obsidian/55 p-6 shadow-deep hover:border-gold/35 hover-glow card-3d card-hover-lift transition group">
             <div class="icon-badge group-hover:scale-110 transition-transform">🕯️</div>
             <div class="font-serif text-2xl">Rituals</div>
             <p class="mt-2 text-ash/70 text-sm leading-relaxed">
@@ -217,7 +217,7 @@
 
           <!-- Dances Card -->
           <a href="dance-detail.html?dance=kecak"
-            class="reveal-stagger stagger-2 rounded-3xl border border-gold/15 bg-obsidian/55 p-6 shadow-deep hover:border-gold/35 hover-glow card-3d transition group">
+            class="reveal-stagger stagger-2 card-tilt rounded-3xl border border-gold/15 bg-obsidian/55 p-6 shadow-deep hover:border-gold/35 hover-glow card-3d card-hover-lift transition group">
             <div class="icon-badge group-hover:scale-110 transition-transform">💃</div>
             <div class="font-serif text-2xl">Dances</div>
             <p class="mt-2 text-ash/70 text-sm leading-relaxed">
@@ -232,7 +232,7 @@
 
           <!-- Temples Card -->
           <a href="temples.html"
-            class="reveal-stagger stagger-3 rounded-3xl border border-gold/15 bg-obsidian/55 p-6 shadow-deep hover:border-gold/35 hover-glow card-3d transition group">
+            class="reveal-stagger stagger-3 card-tilt rounded-3xl border border-gold/15 bg-obsidian/55 p-6 shadow-deep hover:border-gold/35 hover-glow card-3d card-hover-lift transition group">
             <div class="icon-badge group-hover:scale-110 transition-transform">🏛️</div>
             <div class="font-serif text-2xl">Temples</div>
             <p class="mt-2 text-ash/70 text-sm leading-relaxed">
@@ -246,7 +246,7 @@
 
           <!-- Map Card -->
           <a href="map.html"
-            class="reveal-stagger stagger-4 rounded-3xl border border-gold/15 bg-obsidian/55 p-6 shadow-deep hover:border-gold/35 hover-glow card-3d transition group">
+            class="reveal-stagger stagger-4 card-tilt rounded-3xl border border-gold/15 bg-obsidian/55 p-6 shadow-deep hover:border-gold/35 hover-glow card-3d card-hover-lift transition group">
             <div class="icon-badge group-hover:scale-110 transition-transform">🗺️</div>
             <div class="font-serif text-2xl">Map</div>
             <p class="mt-2 text-ash/70 text-sm leading-relaxed">
