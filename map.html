@@ -73,7 +73,8 @@
 
           <div class="leading-tight">
             <div class="font-serif tracking-wide">Nusantara Bali Heritage</div>
-            <div class="text-xs text-ash/60 -mt-0.5">Budaya Bali Keunikan & Identitas Nusantara</div>
+            <div class="text-xs text-ash/60 -mt-0.5 brand-subtitle-mobile-hide">Budaya Bali Keunikan & Identitas
+              Nusantara</div>
           </div>
         </a>
 
@@ -92,12 +93,12 @@
     <source src="assets/audio/Lagu Daerah Bali.mp3" type="audio/mpeg" />
   </audio>
 
-  <main data-page class="page-fade relative z-[10] pt-28">
+  <main data-page class="page-fade relative z-[10] pt-20 sm:pt-28">
     <section class="relative py-16 sm:py-20">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <a href="index.html#overview"
           class="reveal inline-flex items-center gap-2 text-sm text-gold/90 hover:text-gold underline underline-offset-4 decoration-gold/30">
-          ← Kembali ke Journey
+          ← Kembali ke Perjalanan
         </a>
 
         <div class="mt-6 max-w-3xl">
@@ -116,62 +117,68 @@
           <!-- MAP -->
           <div
             class="lg:col-span-8 reveal rounded-3xl border border-gold/15 bg-obsidian/55 p-6 shadow-deep overflow-hidden">
-            <div class="text-sm text-ash/70">Tip: hover wilayah → highlight, click → panel</div>
+            <!-- Mobile Instruction -->
+            <div class="text-sm text-ash/70 md:hidden">💡 Tip: Geser peta untuk melihat wilayah lain, Tap untuk info.
+            </div>
+            <!-- Desktop Instruction -->
+            <div class="text-sm text-ash/70 hidden md:block">Tip: hover wilayah → highlight, click → panel</div>
 
-            <div class="mt-6 rounded-2xl border border-gold/10 bg-obsidian/35 overflow-hidden">
-              <svg id="baliMap" viewBox="0 0 900 360" class="w-full h-[320px] sm:h-[360px]" role="img"
-                aria-label="Interactive Bali map">
-                <defs>
-                  <linearGradient id="g" x1="0" x2="1">
-                    <stop offset="0%" stop-color="rgba(200,169,81,.22)"></stop>
-                    <stop offset="100%" stop-color="rgba(200,169,81,.08)"></stop>
-                  </linearGradient>
-                </defs>
+            <div class="mt-6 rounded-2xl border border-gold/10 bg-obsidian/35 overflow-hidden map-scroll-container">
+              <div class="map-inner-wrapper">
+                <svg id="baliMap" viewBox="0 0 900 360" class="w-full h-[320px] sm:h-[360px]" role="img"
+                  aria-label="Interactive Bali map">
+                  <defs>
+                    <linearGradient id="g" x1="0" x2="1">
+                      <stop offset="0%" stop-color="rgba(200,169,81,.22)"></stop>
+                      <stop offset="100%" stop-color="rgba(200,169,81,.08)"></stop>
+                    </linearGradient>
+                  </defs>
 
-                <!-- Island silhouette (prototype) -->
-                <path d="M60 210 C130 150, 240 120, 360 140 C420 150, 480 190, 560 190 C650 190, 720 150, 840 170
+                  <!-- Island silhouette (prototype) -->
+                  <path d="M60 210 C130 150, 240 120, 360 140 C420 150, 480 190, 560 190 C650 190, 720 150, 840 170
                          C860 175, 870 195, 850 210 C780 260, 690 270, 600 260 C520 250, 470 230, 380 240
                          C260 255, 140 260, 80 245 C55 238, 40 225, 60 210 Z" fill="rgba(42,42,42,.55)"
-                  stroke="rgba(200,169,81,.18)" stroke-width="2" />
+                    stroke="rgba(200,169,81,.18)" stroke-width="2" />
 
-                <!-- Regions -->
-                <path class="region" data-region="west"
-                  d="M120 210 C160 180, 220 170, 280 178 C250 210, 200 230, 150 235 C125 232, 110 222, 120 210 Z"
-                  fill="url(#g)" stroke="rgba(200,169,81,.35)" stroke-width="2" />
+                  <!-- Regions -->
+                  <path class="region" data-region="west"
+                    d="M120 210 C160 180, 220 170, 280 178 C250 210, 200 230, 150 235 C125 232, 110 222, 120 210 Z"
+                    fill="url(#g)" stroke="rgba(200,169,81,.35)" stroke-width="2" />
 
-                <path class="region" data-region="central"
-                  d="M290 178 C340 168, 400 175, 450 192 C410 220, 360 230, 300 225 C285 210, 280 195, 290 178 Z"
-                  fill="url(#g)" stroke="rgba(200,169,81,.35)" stroke-width="2" />
+                  <path class="region" data-region="central"
+                    d="M290 178 C340 168, 400 175, 450 192 C410 220, 360 230, 300 225 C285 210, 280 195, 290 178 Z"
+                    fill="url(#g)" stroke="rgba(200,169,81,.35)" stroke-width="2" />
 
-                <path class="region" data-region="east"
-                  d="M460 192 C520 190, 610 195, 690 185 C660 220, 590 235, 500 228 C470 220, 460 205, 460 192 Z"
-                  fill="url(#g)" stroke="rgba(200,169,81,.35)" stroke-width="2" />
+                  <path class="region" data-region="east"
+                    d="M460 192 C520 190, 610 195, 690 185 C660 220, 590 235, 500 228 C470 220, 460 205, 460 192 Z"
+                    fill="url(#g)" stroke="rgba(200,169,81,.35)" stroke-width="2" />
 
-                <!-- Labels -->
-                <text x="140" y="205" fill="rgba(234,234,234,.7)" font-size="14">West</text>
-                <text x="320" y="190" fill="rgba(234,234,234,.7)" font-size="14">Central</text>
-                <text x="540" y="210" fill="rgba(234,234,234,.7)" font-size="14">East</text>
-              </svg>
+                  <!-- Labels -->
+                  <text x="140" y="205" fill="rgba(234,234,234,.7)" font-size="14">West</text>
+                  <text x="320" y="190" fill="rgba(234,234,234,.7)" font-size="14">Central</text>
+                  <text x="540" y="210" fill="rgba(234,234,234,.7)" font-size="14">East</text>
+                </svg>
 
-              <style>
-                .region {
-                  cursor: pointer;
-                  transition: opacity .15s ease, stroke .15s ease, filter .15s ease;
-                  opacity: .74;
-                }
+                <style>
+                  .region {
+                    cursor: pointer;
+                    transition: opacity .15s ease, stroke .15s ease, filter .15s ease;
+                    opacity: .74;
+                  }
 
-                .region:hover {
-                  opacity: .96;
-                  stroke: rgba(200, 169, 81, .75);
-                  filter: drop-shadow(0 0 10px rgba(200, 169, 81, .15));
-                }
+                  .region:hover {
+                    opacity: .96;
+                    stroke: rgba(200, 169, 81, .75);
+                    filter: drop-shadow(0 0 10px rgba(200, 169, 81, .15));
+                  }
 
-                .region.is-selected {
-                  opacity: 1;
-                  stroke: rgba(200, 169, 81, .92);
-                  filter: drop-shadow(0 0 14px rgba(200, 169, 81, .18));
-                }
-              </style>
+                  .region.is-selected {
+                    opacity: 1;
+                    stroke: rgba(200, 169, 81, .92);
+                    filter: drop-shadow(0 0 14px rgba(200, 169, 81, .18));
+                  }
+                </style>
+              </div>
             </div>
           </div>
 

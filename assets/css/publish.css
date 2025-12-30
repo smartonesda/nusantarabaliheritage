@@ -1674,3 +1674,47 @@ body.light-mode .grain {
   transform: translateY(-2px);
   box-shadow: 0 4px 20px rgba(200, 169, 81, .2);
 }
+
+/* --- Responsive Map Scroll --- */
+.map-inner-wrapper {
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .map-scroll-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    /* Visual cue for scrolling */
+    background: linear-gradient(to right, rgba(11, 11, 11, 0.5), transparent 10%, transparent 90%, rgba(11, 11, 11, 0.5));
+    scroll-behavior: smooth;
+    padding-bottom: 0.5rem;
+    touch-action: pan-x;
+    /* Critical for enabling horizontal swipe */
+    cursor: grab;
+  }
+
+  .map-scroll-container:active {
+    cursor: grabbing;
+  }
+
+  .map-inner-wrapper {
+    /* Zooms the map on mobile - 200% width allows zooming in */
+    min-width: 200%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Make sure labels are readable */
+  #baliMap text {
+    font-size: 16px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Adjust region stroke for zoomed map */
+  .region {
+    stroke-width: 1.5px;
+  }
+}
