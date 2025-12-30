@@ -7,7 +7,6 @@
   <title>Smartone - Nusantara Bali Heritage </title>
   <meta name="description" content="Arsitektur dan pura Bali sebagai kosmologi: ruang, gerbang, mandala, dan etika." />
   <link rel="stylesheet" href="assets/css/publish.css" />
-  <link rel="stylesheet" href="assets/css/publish.css" />
   <link rel="icon" href="assets/img/smartone.png" type="image/x-icon">
 
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/smartone.png">
@@ -44,6 +43,12 @@
 </head>
 
 <body class="bg-obsidian text-ash font-sans selection:bg-gold/20 selection:text-ash">
+  <!-- Skip Link for Accessibility -->
+  <a href="#main" class="skip-link">Langsung ke konten utama</a>
+
+  <!-- Progress Bar -->
+  <div id="scrollProgress" class="scroll-progress"></div>
+
   <div class="fixed inset-0 grain z-[1]"></div>
 
   <!-- Header shared (same as others) -->
@@ -52,22 +57,21 @@
       <div
         class="mt-4 flex items-center justify-between rounded-2xl bg-obsidian/55 backdrop-blur-md border border-gold/15 shadow-deep">
         <a href="index.html" class="flex items-center gap-3 px-4 py-3">
-          <div class="relative h-10 w-10 sm:h-11 sm:w-11 rounded-2xl border border-gold/30 bg-obsidian/40 overflow-hidden">
-  <!-- glow frame -->
-  <div class="absolute inset-0 rounded-2xl shadow-[0_0_0_1px_rgba(200,169,81,.18),0_0_24px_rgba(200,169,81,.10)]"></div>
+          <div
+            class="relative h-10 w-10 sm:h-11 sm:w-11 rounded-2xl border border-gold/30 bg-obsidian/40 overflow-hidden">
+            <!-- glow frame -->
+            <div
+              class="absolute inset-0 rounded-2xl shadow-[0_0_0_1px_rgba(200,169,81,.18),0_0_24px_rgba(200,169,81,.10)]">
+            </div>
 
-  <!-- logo -->
-     <img
-      src="assets/img/logo.svg"
-      alt="Bali: The Sacred Veil logo"
-      class="relative z-[1] w-full h-full object-cover scale-[1.35]"
-      loading="eager"
-      decoding="async"
-   />
-</div>
+            <!-- logo -->
+            <img src="assets/img/logo.svg" alt="Bali: The Sacred Veil logo"
+              class="relative z-[1] w-full h-full object-cover scale-[1.35]" loading="eager" decoding="async" />
+          </div>
           <div class="leading-tight">
             <div class="font-serif tracking-wide">Nusantara Bali Heritage</div>
-            <div class="text-xs text-ash/60 -mt-0.5" data-i18n="nav.brandSub">Budaya Bali Keunikan & Identitas Nusantara</div>
+            <div class="text-xs text-ash/60 -mt-0.5" data-i18n="nav.brandSub">Budaya Bali Keunikan & Identitas Nusantara
+            </div>
           </div>
         </a>
 
@@ -97,40 +101,93 @@
         <div class="mt-6 max-w-3xl">
           <p class="reveal text-gold/90 tracking-[0.18em] uppercase text-xs">Temples as Gateways</p>
           <h1 class="reveal mt-3 font-serif text-3xl sm:text-5xl tracking-wide">Ruang Suci dan Kosmologi Bali</h1>
+
+          <!-- Storytelling Introduction -->
+          <div class="reveal story-quote mt-6">
+            Anda berdiri di depan gerbang yang menjulang tinggi. Di baliknya bukan sekadar halaman — melainkan dimensi
+            berbeda. Setiap langkah yang Anda ambil adalah perjalanan dari dunia luar menuju yang sakral.
+          </div>
+
           <p class="reveal mt-5 text-ash/80 leading-relaxed">
-            Arsitektur pura di Bali dibangun bukan hanya sebagai tempat ibadah,
-            tetapi sebagai representasi kosmologi dan keteraturan ruang hidup masyarakat Nusantara.
+            Arsitektur pura di Bali dibangun bukan hanya sebagai tempat ibadah, tetapi sebagai representasi
+            <span class="term" data-tooltip="Gambaran tata ruang semesta dalam bentuk fisik">kosmologi</span>
+            dan keteraturan ruang hidup masyarakat Nusantara.
           </p>
         </div>
 
         <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <!-- Hero Image Section -->
           <div class="lg:col-span-7 relative rounded-3xl overflow-hidden border border-gold/15 shadow-deep">
             <div
               class="absolute inset-0 bg-[url('assets/img/temple-hero.jpg')] bg-cover bg-center opacity-80 slow-zoom">
             </div>
             <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
             <div class="absolute bottom-5 left-6 right-6">
+              <div class="icon-badge mb-2">🏛️</div>
               <h2 class="font-serif text-2xl tracking-wide">Where Earth Meets the Divine</h2>
-              <p class="text-sm text-ash/70 mt-1">Arsitektur indah dan Warisan pulau bali</p>
+              <p class="text-sm text-ash/70 mt-1">Arsitektur indah dan Warisan pulau Bali</p>
             </div>
           </div>
 
+          <!-- Info Panel -->
           <div class="lg:col-span-5">
-            <div class="reveal rounded-3xl border border-gold/15 bg-obsidian/55 p-7 shadow-deep">
+            <div class="reveal rounded-3xl border border-gold/15 bg-obsidian/55 p-7 shadow-deep h-full">
               <h2 class="font-serif text-xl tracking-wide">Catatan Perjalanan</h2>
               <p class="mt-3 text-ash/75 leading-relaxed">
-                Ruang adalah bahasa. Pura mengatur gerak, niat, dan kesadaran melalui struktur.
+                Ruang adalah bahasa. Pura mengatur gerak, niat, dan kesadaran melalui struktur arsitekturnya.
               </p>
 
               <div class="mt-6 space-y-3">
-                <div class="rounded-2xl border border-gold/10 bg-obsidian/35 p-4">
-                  <div class="text-sm text-gold/90 font-medium">Mandala zoning</div>
-                  <div class="text-sm text-ash/70 mt-1">Struktur ruang bertingkat yang menuntun sikap dan kesadaran.
+                <!-- Mandala Zoning -->
+                <div class="rounded-2xl border border-gold/10 bg-obsidian/35 p-4 hover-glow transition">
+                  <div class="flex items-start gap-3">
+                    <span class="icon-badge text-sm flex-shrink-0">🔲</span>
+                    <div>
+                      <div class="text-sm text-gold/90 font-medium">
+                        <span class="term"
+                          data-tooltip="Pola kosmologis yang mengatur tata ruang berdasarkan tingkat kesakralan">Mandala
+                          Zoning</span>
+                      </div>
+                      <div class="text-sm text-ash/70 mt-1">
+                        Struktur ruang bertingkat yang menuntun sikap dan kesadaran pengunjung saat bergerak dari luar
+                        ke dalam.
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="rounded-2xl border border-gold/10 bg-obsidian/35 p-4">
-                  <div class="text-sm text-gold/90 font-medium">Threshold ethics</div>
-                  <div class="text-sm text-ash/70 mt-1">Transisi ruang juga transisi batin—cara hadir itu penting.</div>
+
+                <!-- Threshold Ethics -->
+                <div class="rounded-2xl border border-gold/10 bg-obsidian/35 p-4 hover-glow transition">
+                  <div class="flex items-start gap-3">
+                    <span class="icon-badge text-sm flex-shrink-0">🚪</span>
+                    <div>
+                      <div class="text-sm text-gold/90 font-medium">
+                        <span class="term"
+                          data-tooltip="Cara bersikap saat melewati ambang batas atau gerbang suci">Threshold
+                          Ethics</span>
+                      </div>
+                      <div class="text-sm text-ash/70 mt-1">
+                        Transisi ruang juga transisi batin — cara hadir dan sikap Anda berubah seiring langkah.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Orientation -->
+                <div class="rounded-2xl border border-gold/10 bg-obsidian/35 p-4 hover-glow transition">
+                  <div class="flex items-start gap-3">
+                    <span class="icon-badge text-sm flex-shrink-0">🧭</span>
+                    <div>
+                      <div class="text-sm text-gold/90 font-medium">
+                        Orientasi <span class="term"
+                          data-tooltip="Arah gunung, dianggap suci dan tinggi">Kaja</span>-<span class="term"
+                          data-tooltip="Arah laut, dianggap rendah dalam hierarki spiritual">Kelod</span>
+                      </div>
+                      <div class="text-sm text-ash/70 mt-1">
+                        Arah menentukan hierarki kesakralan. Gunung adalah tinggi (suci), laut adalah rendah.
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -138,6 +195,109 @@
                 href="dance-detail.html?dance=temples">
                 <span data-i18n="common.readMore">Baca Selengkapnya</span> →
               </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tips untuk Pengunjung Pura (Redesigned - Soft) -->
+        <div class="reveal mt-10 tips-container">
+          <div class="tips-header">
+            <span>💡</span>
+            <h2>Tips Mengunjungi Pura</h2>
+          </div>
+          <div class="tips-grid">
+            <div class="tips-column recommended">
+              <div class="tips-column-header">
+                <span>✨</span> Disarankan
+              </div>
+              <ul class="tips-list">
+                <li class="tips-item">
+                  <div class="tips-icon">👔</div>
+                  <div class="tips-content">
+                    <p class="tips-text">Mengenakan kain sarung dan selendang</p>
+                  </div>
+                </li>
+                <li class="tips-item">
+                  <div class="tips-icon">🙏</div>
+                  <div class="tips-content">
+                    <p class="tips-text">Menundukkan kepala saat ada pemangku lewat</p>
+                  </div>
+                </li>
+                <li class="tips-item">
+                  <div class="tips-icon">👟</div>
+                  <div class="tips-content">
+                    <p class="tips-text">Melepas alas kaki di area tertentu</p>
+                  </div>
+                </li>
+                <li class="tips-item">
+                  <div class="tips-icon">🤫</div>
+                  <div class="tips-content">
+                    <p class="tips-text">Berbicara dengan suara pelan</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="tips-column avoid">
+              <div class="tips-column-header">
+                <span>🙏</span> Sebaiknya Dihindari
+              </div>
+              <ul class="tips-list">
+                <li class="tips-item">
+                  <div class="tips-icon">🩸</div>
+                  <div class="tips-content">
+                    <p class="tips-text">Memasuki pura saat menstruasi atau luka terbuka</p>
+                  </div>
+                </li>
+                <li class="tips-item">
+                  <div class="tips-icon">📸</div>
+                  <div class="tips-content">
+                    <p class="tips-text">Memotret area terlarang atau upacara privat</p>
+                  </div>
+                </li>
+                <li class="tips-item">
+                  <div class="tips-icon">👆</div>
+                  <div class="tips-content">
+                    <p class="tips-text">Menunjuk dengan tangan kiri atau kaki</p>
+                  </div>
+                </li>
+                <li class="tips-item">
+                  <div class="tips-icon">🧍</div>
+                  <div class="tips-content">
+                    <p class="tips-text">Berdiri lebih tinggi dari altar atau pemangku</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Reference: Temple Zones -->
+        <div class="reveal mt-8 rounded-3xl border border-gold/15 bg-obsidian/55 p-6 shadow-deep">
+          <h2 class="font-serif text-xl text-ash mb-4">🏛️ Memahami Zona Pura</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="rounded-2xl border border-gold/10 bg-obsidian/35 p-4 text-center">
+              <div class="icon-badge mx-auto mb-2">1️⃣</div>
+              <div class="text-gold/90 font-medium mb-1">
+                <span class="term"
+                  data-tooltip="Halaman paling luar, area 'profan' yang boleh dimasuki semua orang">Jaba Pisan</span>
+              </div>
+              <p class="text-xs text-ash/70">Halaman luar — area transisi</p>
+            </div>
+            <div class="rounded-2xl border border-gold/10 bg-obsidian/35 p-4 text-center">
+              <div class="icon-badge mx-auto mb-2">2️⃣</div>
+              <div class="text-gold/90 font-medium mb-1">
+                <span class="term" data-tooltip="Halaman tengah, lebih sakral, tempat persiapan upacara">Jaba
+                  Tengah</span>
+              </div>
+              <p class="text-xs text-ash/70">Halaman tengah — persiapan</p>
+            </div>
+            <div class="rounded-2xl border border-gold/10 bg-obsidian/35 p-4 text-center">
+              <div class="icon-badge mx-auto mb-2">3️⃣</div>
+              <div class="text-gold/90 font-medium mb-1">
+                <span class="term"
+                  data-tooltip="Halaman paling dalam dan sakral, hanya untuk umat bersembahyang">Jeroan</span>
+              </div>
+              <p class="text-xs text-ash/70">Halaman dalam — paling sakral</p>
             </div>
           </div>
         </div>
@@ -157,6 +317,9 @@
       </div>
     </section>
   </main>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" aria-label="Kembali ke atas">↑</button>
 
   <script src="assets/js/app.js"></script>
   <script src="assets/js/publish.js"></script>

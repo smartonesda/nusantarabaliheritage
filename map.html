@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smartone - Nusantara Bali Heritage</title>
-  <meta name="description" content="Peta interaktif Bali untuk eksplorasi wilayah: ritual, tarian, pura, dan cerita ringkas." />
+  <meta name="description"
+    content="Peta interaktif Bali untuk eksplorasi wilayah: ritual, tarian, pura, dan cerita ringkas." />
   <link rel="stylesheet" href="assets/css/publish.css" />
   <link rel="icon" href="assets/img/smartone.png" type="image/x-icon">
 
@@ -12,11 +14,15 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/smartone.jpeg">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = { theme: { extend: {
-      colors:{obsidian:"#0B0B0B",gold:"#C8A951",ash:"#EAEAEA",stone:"#2A2A2A"},
-      fontFamily:{serif:["ui-serif","Georgia","Times New Roman","serif"],sans:["ui-sans-serif","system-ui","Segoe UI","Roboto","Arial","sans-serif"]},
-      boxShadow:{deep:"0 20px 60px rgba(0,0,0,.55)",glow:"0 0 0 1px rgba(200,169,81,.25), 0 0 24px rgba(200,169,81,.12)"}
-    } } }
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { obsidian: "#0B0B0B", gold: "#C8A951", ash: "#EAEAEA", stone: "#2A2A2A" },
+          fontFamily: { serif: ["ui-serif", "Georgia", "Times New Roman", "serif"], sans: ["ui-sans-serif", "system-ui", "Segoe UI", "Roboto", "Arial", "sans-serif"] },
+          boxShadow: { deep: "0 20px 60px rgba(0,0,0,.55)", glow: "0 0 0 1px rgba(200,169,81,.25), 0 0 24px rgba(200,169,81,.12)" }
+        }
+      }
+    }
   </script>
 
   <!-- Base first, then publish polish -->
@@ -41,23 +47,28 @@
 </head>
 
 <body class="bg-obsidian text-ash font-sans selection:bg-gold/20 selection:text-ash">
+  <!-- Skip Link for Accessibility -->
+  <a href="#main" class="skip-link">Langsung ke konten utama</a>
+
+  <!-- Progress Bar -->
+  <div id="scrollProgress" class="scroll-progress"></div>
+
   <div class="fixed inset-0 grain z-[1]" aria-hidden="true"></div>
 
   <!-- Header shared -->
   <header class="fixed top-0 left-0 right-0 z-[60]">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mt-4 flex items-center justify-between rounded-2xl bg-obsidian/55 backdrop-blur-md border border-gold/15 shadow-deep">
+      <div
+        class="mt-4 flex items-center justify-between rounded-2xl bg-obsidian/55 backdrop-blur-md border border-gold/15 shadow-deep">
         <a href="index.html" class="flex items-center gap-3 px-4 py-3" aria-label="Back to Home">
-          <div class="relative h-10 w-10 sm:h-11 sm:w-11 rounded-2xl border border-gold/30 bg-obsidian/40 overflow-hidden">
-            <div class="absolute inset-0 rounded-2xl shadow-[0_0_0_1px_rgba(200,169,81,.18),0_0_24px_rgba(200,169,81,.10)]"></div>
+          <div
+            class="relative h-10 w-10 sm:h-11 sm:w-11 rounded-2xl border border-gold/30 bg-obsidian/40 overflow-hidden">
+            <div
+              class="absolute inset-0 rounded-2xl shadow-[0_0_0_1px_rgba(200,169,81,.18),0_0_24px_rgba(200,169,81,.10)]">
+            </div>
 
-            <img
-              src="assets/img/logo.svg"
-              alt="Bali: The Sacred Veil logo"
-              class="relative z-[1] w-full h-full object-cover scale-[1.35]"
-              loading="eager"
-              decoding="async"
-            />
+            <img src="assets/img/logo.svg" alt="Bali: The Sacred Veil logo"
+              class="relative z-[1] w-full h-full object-cover scale-[1.35]" loading="eager" decoding="async" />
           </div>
 
           <div class="leading-tight">
@@ -67,8 +78,7 @@
         </a>
 
         <div class="flex items-center gap-2 pr-3">
-          <button id="audioBtn"
-            type="button"
+          <button id="audioBtn" type="button"
             class="rounded-xl border border-gold/15 bg-obsidian/50 px-3 py-2 text-sm text-ash/90 hover:border-gold/35 transition"
             aria-label="Toggle ambient audio">
             <span id="audioLabel" class="text-gold">Audio Off</span>
@@ -85,7 +95,8 @@
   <main data-page class="page-fade relative z-[10] pt-28">
     <section class="relative py-16 sm:py-20">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <a href="index.html#overview" class="reveal inline-flex items-center gap-2 text-sm text-gold/90 hover:text-gold underline underline-offset-4 decoration-gold/30">
+        <a href="index.html#overview"
+          class="reveal inline-flex items-center gap-2 text-sm text-gold/90 hover:text-gold underline underline-offset-4 decoration-gold/30">
           ← Kembali ke Journey
         </a>
 
@@ -103,11 +114,13 @@
 
         <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
           <!-- MAP -->
-          <div class="lg:col-span-8 reveal rounded-3xl border border-gold/15 bg-obsidian/55 p-6 shadow-deep overflow-hidden">
+          <div
+            class="lg:col-span-8 reveal rounded-3xl border border-gold/15 bg-obsidian/55 p-6 shadow-deep overflow-hidden">
             <div class="text-sm text-ash/70">Tip: hover wilayah → highlight, click → panel</div>
 
             <div class="mt-6 rounded-2xl border border-gold/10 bg-obsidian/35 overflow-hidden">
-              <svg id="baliMap" viewBox="0 0 900 360" class="w-full h-[320px] sm:h-[360px]" role="img" aria-label="Interactive Bali map">
+              <svg id="baliMap" viewBox="0 0 900 360" class="w-full h-[320px] sm:h-[360px]" role="img"
+                aria-label="Interactive Bali map">
                 <defs>
                   <linearGradient id="g" x1="0" x2="1">
                     <stop offset="0%" stop-color="rgba(200,169,81,.22)"></stop>
@@ -118,21 +131,21 @@
                 <!-- Island silhouette (prototype) -->
                 <path d="M60 210 C130 150, 240 120, 360 140 C420 150, 480 190, 560 190 C650 190, 720 150, 840 170
                          C860 175, 870 195, 850 210 C780 260, 690 270, 600 260 C520 250, 470 230, 380 240
-                         C260 255, 140 260, 80 245 C55 238, 40 225, 60 210 Z"
-                      fill="rgba(42,42,42,.55)" stroke="rgba(200,169,81,.18)" stroke-width="2"/>
+                         C260 255, 140 260, 80 245 C55 238, 40 225, 60 210 Z" fill="rgba(42,42,42,.55)"
+                  stroke="rgba(200,169,81,.18)" stroke-width="2" />
 
                 <!-- Regions -->
                 <path class="region" data-region="west"
-                      d="M120 210 C160 180, 220 170, 280 178 C250 210, 200 230, 150 235 C125 232, 110 222, 120 210 Z"
-                      fill="url(#g)" stroke="rgba(200,169,81,.35)" stroke-width="2"/>
+                  d="M120 210 C160 180, 220 170, 280 178 C250 210, 200 230, 150 235 C125 232, 110 222, 120 210 Z"
+                  fill="url(#g)" stroke="rgba(200,169,81,.35)" stroke-width="2" />
 
                 <path class="region" data-region="central"
-                      d="M290 178 C340 168, 400 175, 450 192 C410 220, 360 230, 300 225 C285 210, 280 195, 290 178 Z"
-                      fill="url(#g)" stroke="rgba(200,169,81,.35)" stroke-width="2"/>
+                  d="M290 178 C340 168, 400 175, 450 192 C410 220, 360 230, 300 225 C285 210, 280 195, 290 178 Z"
+                  fill="url(#g)" stroke="rgba(200,169,81,.35)" stroke-width="2" />
 
                 <path class="region" data-region="east"
-                      d="M460 192 C520 190, 610 195, 690 185 C660 220, 590 235, 500 228 C470 220, 460 205, 460 192 Z"
-                      fill="url(#g)" stroke="rgba(200,169,81,.35)" stroke-width="2"/>
+                  d="M460 192 C520 190, 610 195, 690 185 C660 220, 590 235, 500 228 C470 220, 460 205, 460 192 Z"
+                  fill="url(#g)" stroke="rgba(200,169,81,.35)" stroke-width="2" />
 
                 <!-- Labels -->
                 <text x="140" y="205" fill="rgba(234,234,234,.7)" font-size="14">West</text>
@@ -141,49 +154,92 @@
               </svg>
 
               <style>
-                .region{
-                  cursor:pointer;
+                .region {
+                  cursor: pointer;
                   transition: opacity .15s ease, stroke .15s ease, filter .15s ease;
-                  opacity:.74;
+                  opacity: .74;
                 }
-                .region:hover{
-                  opacity:.96;
-                  stroke: rgba(200,169,81,.75);
-                  filter: drop-shadow(0 0 10px rgba(200,169,81,.15));
+
+                .region:hover {
+                  opacity: .96;
+                  stroke: rgba(200, 169, 81, .75);
+                  filter: drop-shadow(0 0 10px rgba(200, 169, 81, .15));
                 }
-                .region.is-selected{
+
+                .region.is-selected {
                   opacity: 1;
-                  stroke: rgba(200,169,81,.92);
-                  filter: drop-shadow(0 0 14px rgba(200,169,81,.18));
+                  stroke: rgba(200, 169, 81, .92);
+                  filter: drop-shadow(0 0 14px rgba(200, 169, 81, .18));
                 }
               </style>
             </div>
           </div>
 
-          <!-- PANEL -->
-          <aside class="lg:col-span-4 reveal rounded-3xl border border-gold/15 bg-obsidian/55 p-6 shadow-deep">
+          <!-- PANEL (Enhanced) -->
+          <aside id="mapPanel"
+            class="lg:col-span-4 reveal rounded-3xl border border-gold/15 bg-obsidian/55 p-6 shadow-deep map-panel">
             <div class="flex items-center justify-between">
               <h2 class="font-serif text-xl tracking-wide">Cerita Wilayah</h2>
               <button id="clearPanel" type="button" class="text-sm text-ash/60 hover:text-ash transition">Clear</button>
             </div>
 
-            <div class="mt-4 rounded-2xl border border-gold/10 bg-obsidian/35 p-4">
-              <div class="text-gold/90 font-medium" id="regionName">—</div>
+            <!-- Image Preview -->
+            <div id="panelImage" class="panel-image mt-4 hidden">
+              <img src="assets/img/temple-hero.jpg" alt="Region preview" loading="lazy" />
+            </div>
+
+            <div class="mt-4 rounded-2xl border border-gold/10 bg-obsidian/35 p-4 panel-content">
+              <div class="text-gold/90 font-medium text-lg" id="regionName">Pilih Wilayah</div>
               <div class="text-sm text-ash/70 mt-2" id="regionStory">
                 Klik wilayah pada peta untuk membuka ringkasan: ritual, tarian, pura, dan cerita ringkas.
               </div>
 
-              <div class="mt-4 space-y-3 hidden" id="regionMeta">
-                <div class="text-sm"><span class="text-ash/60">Ritual:</span> <span class="text-ash/85" id="regionRitual">—</span></div>
-                <div class="text-sm"><span class="text-ash/60">Tarian:</span> <span class="text-ash/85" id="regionDance">—</span></div>
-                <div class="text-sm"><span class="text-ash/60">Pura:</span> <span class="text-ash/85" id="regionTemple">—</span></div>
+              <!-- Meta Tags -->
+              <div class="meta-tags hidden" id="regionMetaTags">
+                <span class="meta-tag" id="tagRitual">
+                  <span class="meta-tag-icon">🙏</span>
+                  <span id="regionRitual">—</span>
+                </span>
+                <span class="meta-tag" id="tagDance">
+                  <span class="meta-tag-icon">💃</span>
+                  <span id="regionDance">—</span>
+                </span>
+                <span class="meta-tag" id="tagTemple">
+                  <span class="meta-tag-icon">🛕</span>
+                  <span id="regionTemple">—</span>
+                </span>
+              </div>
 
-                <a id="readStoryLink"
-                   class="mt-2 inline-flex items-center gap-2 text-sm text-gold/90 hover:text-gold underline underline-offset-4 decoration-gold/30"
-                   href="dance-detail.html?dance=kecak">
-                  Baca Selengkapnya →
+              <div class="hidden" id="regionMeta">
+                <a id="readStoryLink" class="explore-btn" href="dance-detail.html?dance=kecak">
+                  <span>Jelajahi Wilayah</span>
+                  <span>→</span>
                 </a>
               </div>
+            </div>
+
+            <!-- Cultural Icons Grid -->
+            <div class="cultural-grid">
+              <a href="dance-detail.html?dance=kecak" class="cultural-icon">
+                <span class="cultural-icon-emoji">🎭</span>
+                <span class="cultural-icon-label">Tarian</span>
+              </a>
+              <a href="rituals.html" class="cultural-icon">
+                <span class="cultural-icon-emoji">🙏</span>
+                <span class="cultural-icon-label">Ritual</span>
+              </a>
+              <a href="temples.html" class="cultural-icon">
+                <span class="cultural-icon-emoji">🛕</span>
+                <span class="cultural-icon-label">Pura</span>
+              </a>
+              <a href="dance-detail.html?dance=tri-hita-karana" class="cultural-icon">
+                <span class="cultural-icon-emoji">☯️</span>
+                <span class="cultural-icon-label">Filosofi</span>
+              </a>
+              <a href="index.html#overview" class="cultural-icon">
+                <span class="cultural-icon-emoji">🌺</span>
+                <span class="cultural-icon-label">Budaya</span>
+              </a>
             </div>
           </aside>
         </div>
@@ -208,49 +264,61 @@
   <script src="assets/js/publish.js"></script>
 
   <script>
-    const $ = (q, el=document) => el.querySelector(q);
-    const $$ = (q, el=document) => Array.from(el.querySelectorAll(q));
+    const $ = (q, el = document) => el.querySelector(q);
+    const $$ = (q, el = document) => Array.from(el.querySelectorAll(q));
 
     const REGION_DATA = {
       west: {
-        name:"West Bali",
-        ritual:"Melasti",
-        dance:"Kecak",
-        temple:"Pura & lanskap pesisir",
-        story:"Di barat, pembersihan bukan sekadar air—melainkan tata batin: menata kembali hubungan manusia, alam, dan makna.",
-        link:"dance-detail.html?dance=kecak"
+        name: "Bali Barat",
+        ritual: "Melasti",
+        dance: "Kecak",
+        temple: "Pura & lanskap pesisir",
+        story: "Di barat, pembersihan bukan sekadar air—melainkan tata batin: menata kembali hubungan manusia, alam, dan makna.",
+        link: "dance-detail.html?dance=kecak",
+        image: "assets/img/temple-hero.jpg"
       },
-      central:{
-        name:"Central Bali",
-        ritual:"Odalan",
-        dance:"Legong",
-        temple:"Struktur mandala pura",
-        story:"Di tengah, ruang adalah etika. Gerbang, halaman, dan ritme komunal menjadi cara masyarakat belajar hadir dan menjaga keteraturan.",
-        link:"dance-detail.html?dance=legong"
+      central: {
+        name: "Bali Tengah",
+        ritual: "Odalan",
+        dance: "Legong",
+        temple: "Struktur mandala pura",
+        story: "Di tengah, ruang adalah etika. Gerbang, halaman, dan ritme komunal menjadi cara masyarakat belajar hadir dan menjaga keteraturan.",
+        link: "dance-detail.html?dance=legong",
+        image: "assets/img/temple-hero.jpg"
       },
       east: {
-        name:"East Bali",
-        ritual:"Galungan & Kuningan",
-        dance:"Barong",
-        temple:"Ruang suci & gerbang tradisi",
-        story:"Di timur, keseimbangan bukan kemenangan—ia perawatan yang diulang: menegaskan dharma melalui praktik yang dijaga lintas generasi.",
-        link:"dance-detail.html?dance=barong"
+        name: "Bali Timur",
+        ritual: "Galungan & Kuningan",
+        dance: "Barong",
+        temple: "Ruang suci & gerbang tradisi",
+        story: "Di timur, keseimbangan bukan kemenangan—ia perawatan yang diulang: menegaskan dharma melalui praktik yang dijaga lintas generasi.",
+        link: "dance-detail.html?dance=barong",
+        image: "assets/img/temple-hero.jpg"
       }
     };
 
+    // DOM Elements
     const regionName = $("#regionName");
     const regionStory = $("#regionStory");
     const regionMeta = $("#regionMeta");
+    const regionMetaTags = $("#regionMetaTags");
     const regionRitual = $("#regionRitual");
     const regionDance = $("#regionDance");
     const regionTemple = $("#regionTemple");
     const readStoryLink = $("#readStoryLink");
     const clearBtn = $("#clearPanel");
+    const mapPanel = $("#mapPanel");
+    const panelImage = $("#panelImage");
+    const panelImageEl = panelImage ? panelImage.querySelector("img") : null;
 
-    function setRegion(key){
+    function setRegion(key) {
       const d = REGION_DATA[key];
       if (!d) return;
 
+      // Panel animation
+      mapPanel.classList.add("is-active");
+
+      // Update content
       regionName.textContent = d.name;
       regionStory.textContent = d.story;
       regionRitual.textContent = d.ritual;
@@ -258,19 +326,58 @@
       regionTemple.textContent = d.temple;
       readStoryLink.href = d.link;
 
+      // Show image preview
+      if (panelImage && panelImageEl) {
+        panelImageEl.src = d.image;
+        panelImage.classList.remove("hidden");
+      }
+
+      // Show meta tags and button
+      if (regionMetaTags) regionMetaTags.classList.remove("hidden");
       regionMeta.classList.remove("hidden");
+
+      // Highlight selected region
       $$(".region").forEach(r => r.classList.toggle("is-selected", r.getAttribute("data-region") === key));
     }
 
-    function clearPanel(){
-      regionName.textContent = "—";
+    function clearPanel() {
+      // Panel animation
+      mapPanel.classList.remove("is-active");
+
+      // Reset content
+      regionName.textContent = "Pilih Wilayah";
       regionStory.textContent = "Klik wilayah pada peta untuk membuka ringkasan: ritual, tarian, pura, dan cerita ringkas.";
+
+      // Hide elements
+      if (panelImage) panelImage.classList.add("hidden");
+      if (regionMetaTags) regionMetaTags.classList.add("hidden");
       regionMeta.classList.add("hidden");
+
+      // Clear selection
       $$(".region").forEach(r => r.classList.remove("is-selected"));
     }
 
+    // Event listeners
     $$(".region").forEach(r => r.addEventListener("click", () => setRegion(r.getAttribute("data-region"))));
     if (clearBtn) clearBtn.addEventListener("click", clearPanel);
+
+    // Tooltip for regions on hover
+    $$(".region").forEach(r => {
+      r.addEventListener("mouseenter", (e) => {
+        const key = r.getAttribute("data-region");
+        const data = REGION_DATA[key];
+        if (data) {
+          r.setAttribute("title", data.name);
+        }
+      });
+    });
   </script>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" aria-label="Kembali ke atas">↑</button>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/publish.js"></script>
 </body>
+
 </html>

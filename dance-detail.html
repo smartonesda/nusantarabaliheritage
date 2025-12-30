@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smartone - Nusantara Bali Heritage</title>
-  <link rel="stylesheet" href="assets/css/publish.css" />
   <link rel="stylesheet" href="assets/css/publish.css" />
   <link rel="icon" href="assets/img/smartone.png" type="image/x-icon">
 
@@ -14,48 +14,58 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = { theme: { extend: {
-      colors:{obsidian:"#0B0B0B",gold:"#C8A951",ash:"#EAEAEA",stone:"#2A2A2A"},
-      fontFamily:{serif:["ui-serif","Georgia","Times New Roman","serif"],sans:["ui-sans-serif","system-ui","Segoe UI","Roboto","Arial","sans-serif"]},
-      boxShadow:{deep:"0 20px 60px rgba(0,0,0,.55)",glow:"0 0 0 1px rgba(200,169,81,.25), 0 0 24px rgba(200,169,81,.12)"}
-    } } }
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { obsidian: "#0B0B0B", gold: "#C8A951", ash: "#EAEAEA", stone: "#2A2A2A" },
+          fontFamily: { serif: ["ui-serif", "Georgia", "Times New Roman", "serif"], sans: ["ui-sans-serif", "system-ui", "Segoe UI", "Roboto", "Arial", "sans-serif"] },
+          boxShadow: { deep: "0 20px 60px rgba(0,0,0,.55)", glow: "0 0 0 1px rgba(200,169,81,.25), 0 0 24px rgba(200,169,81,.12)" }
+        }
+      }
+    }
   </script>
   <link rel="stylesheet" href="assets/css/base.css" />
 </head>
 
 <body class="bg-obsidian text-ash font-sans selection:bg-gold/20 selection:text-ash">
+  <!-- Skip Link for Accessibility -->
+  <a href="#title" class="skip-link">Langsung ke artikel</a>
+
+  <!-- Progress Bar -->
+  <div id="scrollProgress" class="scroll-progress"></div>
+
   <div class="fixed inset-0 grain z-[1]"></div>
 
   <!-- Header -->
   <header class="fixed top-0 left-0 right-0 z-[60]">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mt-4 flex items-center justify-between rounded-2xl bg-obsidian/55 backdrop-blur-md border border-gold/15 shadow-deep">
+      <div
+        class="mt-4 flex items-center justify-between rounded-2xl bg-obsidian/55 backdrop-blur-md border border-gold/15 shadow-deep">
         <a href="index.html" class="flex items-center gap-3 px-4 py-3">
-          <div class="relative h-10 w-10 sm:h-11 sm:w-11 rounded-2xl border border-gold/30 bg-obsidian/40 overflow-hidden">
-  <!-- glow frame -->
-  <div class="absolute inset-0 rounded-2xl shadow-[0_0_0_1px_rgba(200,169,81,.18),0_0_24px_rgba(200,169,81,.10)]"></div>
+          <div
+            class="relative h-10 w-10 sm:h-11 sm:w-11 rounded-2xl border border-gold/30 bg-obsidian/40 overflow-hidden">
+            <!-- glow frame -->
+            <div
+              class="absolute inset-0 rounded-2xl shadow-[0_0_0_1px_rgba(200,169,81,.18),0_0_24px_rgba(200,169,81,.10)]">
+            </div>
 
-  <!-- logo -->
-     <img
-      src="assets/img/logo.svg"
-      alt="Bali: The Sacred Veil logo"
-      class="relative z-[1] w-full h-full object-cover scale-[1.35]"
-      loading="eager"
-      decoding="async"
-   />
-</div>
+            <!-- logo -->
+            <img src="assets/img/logo.svg" alt="Bali: The Sacred Veil logo"
+              class="relative z-[1] w-full h-full object-cover scale-[1.35]" loading="eager" decoding="async" />
+          </div>
           <div class="leading-tight">
             <div class="font-serif tracking-wide">Nusantara Bali Heritage</div>
-            <div class="text-xs text-ash/60 -mt-0.5" data-i18n="nav.brandSub">Budaya Bali Keunikan & Identitas Nusantara</div>
+            <div class="text-xs text-ash/60 -mt-0.5" data-i18n="nav.brandSub">Budaya Bali Keunikan & Identitas Nusantara
+            </div>
           </div>
         </a>
 
         <div class="flex items-center gap-2 pr-3">
-  <button id="audioBtn"
-    class="rounded-xl border border-gold/15 bg-obsidian/50 px-3 py-2 text-sm text-ash/90 hover:border-gold/35 transition">
-    <span id="audioLabel" class="text-gold">Audio Off</span>
-  </button>
-</div>
+          <button id="audioBtn"
+            class="rounded-xl border border-gold/15 bg-obsidian/50 px-3 py-2 text-sm text-ash/90 hover:border-gold/35 transition">
+            <span id="audioLabel" class="text-gold">Audio Off</span>
+          </button>
+        </div>
 
       </div>
     </div>
@@ -68,15 +78,22 @@
   <main class="relative z-[10] pt-28">
     <article class="relative py-16 sm:py-20">
       <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <a id="backLink" href="index.html#overview" class="reveal inline-flex items-center gap-2 text-sm text-gold/90 hover:text-gold underline underline-offset-4 decoration-gold/30">
+        <a id="backLink" href="index.html#overview"
+          class="reveal inline-flex items-center gap-2 text-sm text-gold/90 hover:text-gold underline underline-offset-4 decoration-gold/30">
           ← <span data-i18n="common.back">Kembali ke Perjalanan</span>
         </a>
 
         <header class="mt-6">
-          <p id="kicker" class="reveal text-gold/90 tracking-[0.18em] uppercase text-xs">Article</p>
+          <div class="flex items-center gap-3 flex-wrap">
+            <p id="kicker" class="reveal text-gold/90 tracking-[0.18em] uppercase text-xs">Article</p>
+            <span class="reading-time">📖 -- menit baca</span>
+          </div>
           <h1 id="title" class="reveal mt-3 font-serif text-3xl sm:text-5xl tracking-wide">—</h1>
           <p id="desc" class="reveal mt-5 text-ash/80 leading-relaxed">—</p>
         </header>
+
+        <!-- Storytelling Opening -->
+        <div id="storyQuote" class="reveal story-quote hidden">—</div>
 
         <div class="reveal mt-10 rounded-3xl border border-gold/15 bg-obsidian/55 overflow-hidden shadow-deep">
           <div id="hero" class="relative h-56 sm:h-72 overflow-hidden">
@@ -88,27 +105,60 @@
               <h2 class="font-serif text-2xl text-ash">Penjelasan</h2>
               <p id="context">—</p>
             </section>
+
+            <div class="section-divider"></div>
+
             <section>
               <h2 class="font-serif text-2xl text-ash">Makna Inti</h2>
-              <ul id="points" class="list-disc pl-5 space-y-2"></ul>
+              <ul id="points" class="key-points"></ul>
             </section>
-            <section class="rounded-2xl border border-gold/10 bg-obsidian/35 p-4">
-              <h2 class="font-serif text-xl text-gold/90">Catatan Etika</h2>
-              <p id="ethicsNote" class="text-sm text-ash/75 mt-2">—</p>
+
+            <div class="section-divider"></div>
+
+            <!-- Tips Section (Redesigned - more soft) -->
+            <section class="tips-container">
+              <div class="tips-header">
+                <span>💡</span>
+                <h2>Tips untuk Pengunjung</h2>
+              </div>
+              <div id="tipsGrid" class="tips-grid">
+                <!-- Will be populated by JS with softer language -->
+              </div>
             </section>
+
+            <div class="section-divider"></div>
+
+            <!-- FAQ Accordion -->
+            <section>
+              <h2 class="font-serif text-2xl text-ash mb-2">❓ Pertanyaan Umum</h2>
+              <p class="text-sm text-ash/60 mb-4">Klik pertanyaan untuk melihat jawaban</p>
+              <div id="faqContainer" class="faq-accordion">
+                <!-- Will be populated by JS -->
+              </div>
+            </section>
+
+            <!-- Social Share -->
+            <div class="social-share">
+              <span class="social-share-label">Bagikan:</span>
+              <button class="share-btn whatsapp" aria-label="Share ke WhatsApp">💬</button>
+              <button class="share-btn twitter" aria-label="Share ke Twitter">🐦</button>
+              <button class="share-btn facebook" aria-label="Share ke Facebook">👍</button>
+              <button class="share-btn copy" aria-label="Copy link">🔗</button>
+            </div>
           </div>
         </div>
-    <footer class="mt-16 pb-10 text-center text-sm text-ash/55">
-    <div class="mx-auto max-w-3xl px-4">
-        <div class="footer-line mb-6"></div>
-        <p class="leading-relaxed">
-        © <span id="year"></span> <span class="text-ash/70">Nusantara Bali Heritage</span> — Smartone.
-        </p>
-        <p class="mt-2 text-xs text-ash/45 leading-relaxed">
-        Presented with cultural respect. Visuals may be symbolic. Avoids modification of sacred symbols and sensational framing.
-        </p>
-    </div>
-    </footer>
+        <footer class="mt-16 pb-10 text-center text-sm text-ash/55">
+          <div class="mx-auto max-w-3xl px-4">
+            <div class="footer-line mb-6"></div>
+            <p class="leading-relaxed">
+              © <span id="year"></span> <span class="text-ash/70">Nusantara Bali Heritage</span> — Smartone.
+            </p>
+            <p class="mt-2 text-xs text-ash/45 leading-relaxed">
+              Presented with cultural respect. Visuals may be symbolic. Avoids modification of sacred symbols and
+              sensational framing.
+            </p>
+          </div>
+        </footer>
       </div>
     </article>
   </main>
@@ -116,252 +166,496 @@
   <!-- JSON-LD placeholder injected by JS -->
   <script id="jsonld" type="application/ld+json">{}</script>
 
-  <script src="assets/js/app.js"></script>
-  <script src="assets/js/publish.js"></script>
-
 
   <script>
-    // ---- Article data (static, SEO-friendly) ----
-   const ARTICLES = {
-    // 1) NGABEN
-    "ngaben": {
-      type: "Ritual",
-      kicker: "Rituals Beyond Time",
-      title: "Ngaben — Pelepasan, Penghormatan, dan Penataan Makna",
-      desc: "Ngaben dibahas sebagai pemahaman filosofis dan sosial—dengan etika penyajian.",
-      hero: "assets/img/ritual-ngaben.jpg",
-      back: "rituals.html",
-      context:
-        "Ngaben adalah upacara pembakaran jenazah sakral bagi umat Hindu Bali untuk menyucikan roh mendiang agar kembali ke Sang Pencipta, melepaskan ikatan duniawi, dan memfasilitasi reinkarnasi, dengan mengembalikan unsur Panca Maha Bhuta lima unsur pembentuk tubuh ke asalnya",
-      points: [
-        "Upacara pelepasan roh dari keterikatan duniawi, agar dapat melanjutkan perjalanan spiritualnya dengan tenang. ",
-        "Pengembalian Unsur Alam. Tubuh manusia dipahami tersusun dari unsur alam. Melalui Ngaben, unsur-unsur tersebut dikembalikan ke asalnya sebagai bagian dari keseimbangan kosmis. ",
-        "Penyelarasan Sekala dan Niskala. Ngaben menjadi jembatan antara dunia nyata (sekala) dan dimensi tak kasat mata (niskala), menjaga keharmonisan keduanya. ",
-        "Penghormatan kepada Leluhur Upacara ini merupakan bentuk bakti dan penghormatan keluarga serta komunitas kepada leluhur yang telah meninggal.",
-        "Perwujudan Nilai Tri Hita Karana Ngaben merepresentasikan harmoni hubungan manusia dengan Tuhan, sesama manusia, dan alam sebagai satu kesatuan nilai hidup."
-      ],
-      ethics:
-        "Gunakan gambar yang bersifat simbolik atau ilustrasi. Jangan memotret bagian yang sensitif tanpa izin. Selalu hormati aturan lokal dan izin narasumber.",
-      faq: [
-        { q: "Apakah Ngaben hanya tentang prosesi?", a: "Dalam pendekatan edukatif, Ngaben dipahami sebagai rangkaian makna—penghormatan, pelepasan, dan penataan kembali relasi sosial-spiritual, bukan sekadar prosesi visual." },
-        { q: "Bolehkah semua bagian Ngaben direkam atau difoto?", a: "Tidak selalu. Etika dokumentasi bergantung pada izin, aturan lokal, dan konteks. Jika ragu, pilih visual simbolik dan fokus pada penjelasan makna." },
-        { q: "Bagaimana menyajikan Ngaben tanpa komersialisasi?", a: "Gunakan narasi edukatif, hindari sensasi, sertakan konteks budaya, dan jaga bahasa hormat. Tekankan nilai dan etika, bukan ‘atraksi’." }
-      ]
-    },
-
-    // 2) GALUNGAN & KUNINGAN
-    "galungan-kuningan": {
-      type: "Ritual",
-      kicker: "Rituals Beyond Time",
-      title: "Galungan & Kuningan — Siklus Dharma dan Harmoni yang Dipelihara",
-      desc: "Galungan–Kuningan dipahami sebagai siklus nilai: penguatan harmoni, keterikatan komunitas, dan tatanan makna.",
-      hero: "assets/img/ritual-galungan.jpg",
-      back: "rituals.html",
-      context:
-        "Galungan dan Kuningan adalah hari raya Hindu penting di Bali yang merayakan kemenangan kebaikan (Dharma) atas kejahatan (Adharma), dengan Galungan menandai kedatangan leluhur dan dewa ke dunia, dan Kuningan (10 hari setelahnya) menandai kepulangan mereka. Perayaan ini berpusat pada spiritualitas, memohon keselamatan, kemakmuran, serta mempererat keharmonisan antar umat. Kuningan sering kali diartikan sebagai momen untuk bersyukur dan memohon keberkahan agar tetap di jalan kebaikan.",
-      points: [
-        "Galungan dimaknai sebagai peringatan atas kemenangan kebenaran (dharma) melawan kekacauan atau ketidakharmonisan (adharma).",
-        "Penguatan Keseimbangan Hidup. Perayaan ini mengingatkan masyarakat untuk kembali menata pikiran, sikap, dan tindakan agar selaras dengan nilai-nilai kehidupan.",
-        "Kehadiran Leluhur Secara Spiritual. Galungan dipercaya sebagai masa di mana leluhur hadir secara simbolik untuk memberikan tuntunan dan restu kepada keturunannya.",
-        "Penguatan Ikatan Keluarga dan Komunitas. Tradisi berkumpul dan saling mengunjungi mencerminkan kuatnya nilai kebersamaan (pawongan) dalam budaya Bali.",
-        "Cerminan Nilai Tri Hita Karana Galungan dan Kuningan merepresentasikan harmoni antara manusia dengan Tuhan, sesama manusia, dan alam sebagai prinsip hidup."
-      ],
-      ethics:
-        "Sampaikan sebagai materi edukasi: jelaskan konteks dan variasi lokal. Jangan nyatakan makna simbol sebagai kebenaran mutlak tanpa sumber.",
-      faq: [
-        { q: "Apa inti Galungan & Kuningan dalam narasi edukatif?", a: "Intinya adalah siklus penguatan nilai dan harmoni, serta bagaimana komunitas menjaga keteraturan makna melalui praktik dan kebersamaan." },
-        { q: "Apakah makna simbol selalu sama di seluruh Bali?", a: "Tidak selalu. Variasi lokal bisa ada. Karena itu, gunakan bahasa yang tidak mengklaim satu tafsir sebagai satu-satunya." },
-        { q: "Bagaimana cara menulis topik ini agar tidak jadi ‘promosi berlebihan’?", a: "Fokus pada konteks, nilai, dan etika. Hindari bahasa jualan. Buat pembaca paham, bukan sekadar terpesona." }
-      ]
-    },
-
-    // 3) KECAK
-    "kecak": {
-      type: "Dance",
-      kicker: "Dances of the Unseen",
-      title: "Kecak — Ritme Kolektif, Emosi, dan Struktur Narasi",
-      desc: "Kecak adalah pengalaman suara dan energi kolektif yang menenun kisah—bukan sekadar tontonan.",
-      hero: "assets/img/kecak.jpg",
-      back: "index.html#overview",
-      context:
-        "Kecak adalah tarian tradisional khas Bali yang unik karena tidak menggunakan alat musik, melainkan diiringi suara koor 'cak-cak-cak' dari puluhan penari pria yang membentuk lingkaran, menceritakan kisah Ramayana (Rama, Sinta, Rahwana, Hanoman) dengan gerakan energik dan properti api, sering dipentaskan di Uluwatu saat matahari terbenam",
-      points: [
-        "Energi kolektif sebagai simbol kebersamaan (pawongan) dan disiplin ritme. Tari Kecak mencerminkan kekuatan kebersamaan melalui suara dan gerak yang dilakukan secara kolektif oleh para penarinya.",
-        "Simbol Kebersamaan Sosial (Pawongan) Kecak menegaskan nilai kebersamaan dalam budaya Bali, di mana harmoni tercipta melalui keterlibatan dan disiplin bersama..",
-        "Pengendalian Emosi dan Disiplin Diri Struktur ritmis Kecak menuntut fokus dan pengendalian emosi, mencerminkan nilai kedisiplinan dalam praktik budaya.",
-        "Penghubung Sekala dan Niskala Dalam penyajiannya, Kecak dipahami sebagai ruang pertemuan antara dunia nyata (sekala) dan dimensi makna (niskala).",
-        "Warisan Budaya yang Hidup Kecak terus berkembang sebagai tradisi yang dijalani, bukan sekadar peninggalan masa lalu, dan dijaga sebagai bagian dari identitas Nusantara."
-      ],
-      ethics:
-        "Hindari menggambarkan Kecak sebagai sesuatu yang mistis. Jelaskan struktur, konteks, dan nilai budayanya. Gunakan sumber tepercaya saat menyebut sejarah.",
-      faq: [
-        { q: "Mengapa Kecak terasa ‘mendalam’ meski tanpa instrumen?", a: "Karena struktur koor dan ritmenya membangun atmosfer. Pola suara yang terorganisir dapat memicu respons emosi seperti musik instrumental." },
-        { q: "Apa yang harus dihindari saat menulis tentang Kecak?", a: "Hindari sensasi dan klaim berlebihan. Jangan memotong konteks budaya menjadi sekadar ‘unik’ atau ‘mistis’ tanpa penjelasan." },
-        { q: "Bagaimana cara membuat konten Kecak terasa edukatif?", a: "Jelaskan konteks, struktur ritme, peran kebersamaan, dan etika dokumentasi. Sertakan penjelasan istilah secara sederhana." }
-      ]
-    },
-
-    // 4) BARONG
-    "barong": {
-      type: "Dance",
-      kicker: "Dances of the Unseen",
-      title: "Barong — Simbol Penjagaan dan Keseimbangan",
-      desc: "Barong mengajak kita memahami keseimbangan—bukan kemenangan mutlak, melainkan perawatan harmoni.",
-      hero: "assets/img/barong.jpg",
-      back: "index.html#overview",
-      context:
-        "makhluk mitologi Hindu yang melambangkan kebaikan dan pelindung dalam tarian sakral yang menggambarkan pertarungan abadi antara kebajikan (Barong) dan kejahatan (Rangda), sebuah representasi filosofis dari Ruwa Bineda (dualitas), sering dipentaskan di Gianyar (Ubud), memiliki berbagai jenis (Ket, Landung, dll.), dan menjadi ikon budaya Bali yang sarat makna spiritual dan estetika.",
-      points: [
-        "Simbol Penjaga Keseimbangan Barong dimaknai sebagai pelindung yang menjaga keseimbangan antara kekuatan positif dan negatif dalam kehidupan.",
-        "Perwujudan Nilai Dharma Barong mencerminkan prinsip kebenaran (dharma) sebagai pedoman dalam menata sikap dan perilaku hidup.",
-        "Pengingat Etika dan Batas Kehidupan Tarian ini berfungsi sebagai pengingat akan pentingnya kendali diri, tanggung jawab, dan keteraturan sosial."
-      ],
-      ethics:
-        "Jangan sederhanakan Barong sebagai 'baik vs jahat'. Beri konteks dan jangan membuat klaim spiritual tanpa bukti.",
-      faq: [
-        { q: "Apakah Barong selalu dimaknai sebagai ‘baik’?", a: "Dalam penjelasan edukatif, lebih aman membahasnya sebagai simbol penjagaan dan keseimbangan, karena tafsir bisa bervariasi tergantung konteks." },
-        { q: "Apa cara aman menyajikan konten Barong?", a: "Tekankan etika, konteks, dan variasi tafsir. Hindari klaim spiritual spesifik tanpa rujukan yang kuat." },
-        { q: "Bagaimana menjaga nuansa magis tanpa sensasi?", a: "Bangun atmosfer lewat visual, musik, dan bahasa puitik yang tetap faktual—lalu kunci dengan penjelasan konteks dan etika." }
-      ]
-    },
-
-    // 5) LEGONG
-    "legong": {
-      type: "Dance",
-      kicker: "Dances of the Unseen",
-      title: "Legong — Presisi, Keanggunan, dan Bahasa Simbol",
-      desc: "Legong menekankan detail: gerak, ekspresi, dan struktur yang menuntun makna.",
-      hero: "assets/img/legong.jpg",
-      back: "index.html#overview",
-      context:
-        "Tari Legong adalah tarian klasik Bali yang anggun dan ekspresif, berasal dari lingkungan keraton pada abad ke-19, dengan gerakan lincah penari wanita muda yang diiringi musik Gamelan Semar Pagulingan. Kata 'legong' berasal dari 'leg' (gerak lues) dan 'gong' (gamelan), melambangkan keindahan gerakan yang terikat pada musik.",
-      points: [
-        "Simbol Kehalusan dan Keanggunan. Tari Legong mencerminkan keindahan gerak yang halus, terkontrol, dan penuh ketelitian sebagai ciri estetika budaya Bali.",
-        "Bahasa Simbol dalam Gerak Tubuh Gerak mata, tangan, dan posisi tubuh berfungsi sebagai bahasa simbol untuk menyampaikan cerita dan makna..",
-        "Keterkaitan musik–gerak ritme menuntun struktur emosi dan narasi."
-      ],
-      ethics:
-        "Jangan menyederhanakan simbol menjadi satu arti. Jelaskan bahwa makna bisa berbeda tergantung konteks dan sumber.",
-      faq: [
-        { q: "Mengapa Legong disebut ‘presisi’?", a: "Karena gerak, timing, dan ekspresi dibangun dengan kontrol tinggi. Presisi ini membantu menyampaikan struktur makna secara konsisten." },
-        { q: "Apa kesalahan umum saat menjelaskan Legong?", a: "Menganggapnya hanya ‘tarian cantik’. Padahal nilai edukatifnya ada pada disiplin, struktur, dan konteks tradisinya." },
-        { q: "Bagaimana membuat artikel Legong terasa imersif?", a: "Deskripsikan ritme, detail gerak, dan hubungkan dengan konteks budaya. Gunakan visual/ilustrasi yang menghormati." }
-      ]
-    },
-
-    // 6) SEKALA / NISKALA
-    "sekala-niskala": {
-      type: "Concept",
-      kicker: "Between Sekala & Niskala",
-      title: "Sekala & Niskala — Dua Dimensi Cara Memahami Bali",
-      desc: "Sekala (yang tampak) dan Niskala (yang tak kasat mata) membantu membaca tindakan, etika, dan makna—tanpa sensasional.",
-      hero: "assets/img/og.jpg",
-      back: "index.html#overview",
-      context:
-        "Sekala–Niskala sering digunakan untuk menjelaskan cara pandang apa yang terlihat (tindakan, ruang, tata laku) dan apa yang tak kasat mata (niat, makna, relasi spiritual).",
-      points: [
-        "Sekala ruang dan tindakan yang terlihat—wadah keteraturan dan harmoni.",
-        "Niskala makna, niat, dan relasi spiritual—dijaga melalui etika.",
-        "Keduanya bukan ‘misteri untuk sensasi’, melainkan kerangka memahami nilai."
-      ],
-      ethics:
-        "Jangan membuat klaim paranormal atau sensasional. Pakai konsep ini untuk membantu memahami, bukan sebagai bukti.",
-      faq: [
-        { q: "Apakah Niskala berarti sesuatu yang ‘seram’?", a: "Tidak. Dalam penjelasan edukatif, Niskala adalah dimensi makna dan niat yang tidak tampak, bukan bahan sensasi." },
-        { q: "Bagaimana menjelaskan Sekala–Niskala untuk wisatawan?", a: "Gunakan contoh sederhana: tindakan (Sekala) disertai niat dan etika (Niskala). Tekankan penghormatan dan konteks." },
-        { q: "Apa manfaat konsep ini untuk storytelling website?", a: "Ia memberi ‘hook’ yang magis namun tetap bertanggung jawab: pembaca merasa takjub, tapi tetap dipandu penjelasan konteks." }
-      ]
-    },
-
-    // 7) TRI HITA KARANA
-    "tri-hita-karana": {
-      type: "Concept",
-      kicker: "Harmony as a Practice",
-      title: "Tri Hita Karana — Harmoni sebagai Praktik, Bukan Slogan",
-      desc: "Tri Hita Karana menjelaskan harmoni lewat tiga relasi manusia–Tuhan, manusia–manusia, manusia–alam.",
-      hero: "assets/img/og.jpg",
-      back: "index.html#overview",
-      context:
-        "Tri Hita Karana dapat diceritakan sebagai prinsip pengikat: harmoni tidak terjadi sendiri, tetapi dipelihara. Dalam website, konsep ini bisa menjadi ‘benang merah’ yang menghubungkan ritual, tarian, arsitektur, dan kehidupan sehari-hari.",
-      points: [
-        "Parhyangan relasi spiritual yang menuntun sikap dan penghormatan.",
-        "Pawongan relasi sosial—kebersamaan, etika, dan tanggung jawab komunitas.",
-        "Palemahan relasi dengan alam—perawatan ruang hidup sebagai bagian dari nilai."
-      ],
-      ethics:
-        "Jangan jadikan Tri Hita Karana sebagai slogan pemasaran. Jelaskan sebagai kerangka edukasi dengan contoh praktik nyata.",
-      faq: [
-        { q: "Apa inti Tri Hita Karana dalam satu kalimat?", a: "Harmoni dipelihara melalui relasi spiritual, sosial, dan alam secara seimbang." },
-        { q: "Bagaimana menghubungkan Tri Hita Karana ke ritual dan tarian?", a: "Ritual menekankan sikap dan penghormatan, tarian mengekspresikan simbol dan etika, komunitas menjaga tatanan—semuanya terhubung sebagai praktik harmoni." },
-        { q: "Apa risiko jika konsep ini dipakai untuk branding?", a: "Risikonya menjadi slogan kosong. Karena itu, sertakan konteks, contoh, dan bahasa yang hormat—bukan bahasa promosi." }
-      ]
-    }
-  };
-
-  const params = new URLSearchParams(location.search);
-  const key = (params.get("dance") || "kecak").toLowerCase();
-  const data = ARTICLES[key] || ARTICLES["kecak"];
-
-  // Fill UI
-  document.title = data.title + " — Bali: The Sacred Veil";
-  document.querySelector("#kicker").textContent = data.kicker;
-  document.querySelector("#title").textContent = data.title;
-  document.querySelector("#desc").textContent = data.desc;
-  document.querySelector("#context").textContent = data.context;
-  document.querySelector("#ethicsNote").textContent = data.ethics;
-  document.querySelector("#backLink").setAttribute("href", data.back);
-  document.querySelector("#heroBg").style.backgroundImage = `url('${data.hero}')`;
-
-  const ul = document.querySelector("#points");
-  ul.innerHTML = "";
-  data.points.forEach(p => {
-    const li = document.createElement("li");
-    li.textContent = p;
-    ul.appendChild(li);
-  });
-
-  // SEO: JSON-LD = BreadcrumbList + Article + FAQPage
-  const faqEntities = (data.faq || []).map(item => ({
-    "@type": "Question",
-    "name": item.q,
-    "acceptedAnswer": { "@type": "Answer", "text": item.a }
-  }));
-
-  const jsonld = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type":"ListItem", "position":1, "name":"Home", "item":"index.html" },
-          {
-            "@type":"ListItem",
-            "position":2,
-            "name": data.type === "Ritual" ? "Rituals" : (data.type === "Dance" ? "Dances" : "Concepts"),
-            "item": data.type === "Ritual" ? "rituals.html" : "index.html#overview"
-          },
-          { "@type":"ListItem", "position":3, "name": data.title, "item": "dance-detail.html?dance=" + encodeURIComponent(key) }
+    // ---- Article data with enhanced interactive content ----
+    const ARTICLES = {
+      // 1) NGABEN
+      "ngaben": {
+        type: "Ritual",
+        kicker: "Rituals Beyond Time",
+        title: "Ngaben — Pelepasan, Penghormatan, dan Penataan Makna",
+        desc: "Ngaben dibahas sebagai pemahaman filosofis dan sosial—dengan etika penyajian.",
+        hero: "assets/img/ritual-ngaben.jpg",
+        back: "rituals.html",
+        opening: "Bayangkan Anda sedang menghadiri perpisahan terakhir yang penuh cinta. Bukan ratapan kesedihan, melainkan perayaan pelepasan. Begitulah suasana Ngaben — sebuah prosesi yang mengantarkan jiwa kembali ke asalnya dengan penuh kehormatan.",
+        context: "Ngaben adalah upacara pembakaran jenazah sakral bagi umat Hindu Bali untuk menyucikan roh mendiang agar kembali ke Sang Pencipta. Prosesi ini melepaskan ikatan duniawi dan memfasilitasi <span class='term' data-tooltip='Proses kelahiran kembali jiwa dalam wujud baru'>reinkarnasi</span>, dengan mengembalikan unsur <span class='term' data-tooltip='Lima elemen dasar: tanah, air, api, udara, dan ruang (ether)'>Panca Maha Bhuta</span> ke asalnya.",
+        points: [
+          { icon: "🕊️", text: "Upacara pelepasan roh dari keterikatan duniawi, agar dapat melanjutkan perjalanan spiritualnya dengan tenang." },
+          { icon: "🌍", text: "Pengembalian Unsur Alam. Tubuh manusia tersusun dari unsur alam, melalui Ngaben unsur-unsur tersebut dikembalikan ke asalnya." },
+          { icon: "⚖️", text: "Penyelarasan <span class='term' data-tooltip='Dunia nyata yang dapat dilihat dan dirasakan'>Sekala</span> dan <span class='term' data-tooltip='Dimensi tak kasat mata, dunia spiritual'>Niskala</span> — menjaga keharmonisan keduanya." },
+          { icon: "🙏", text: "Penghormatan kepada Leluhur sebagai bentuk bakti keluarga dan komunitas." },
+          { icon: "☯️", text: "Perwujudan nilai <span class='term' data-tooltip='Tiga penyebab kebahagiaan: hubungan harmonis dengan Tuhan, manusia, dan alam'>Tri Hita Karana</span>." }
+        ],
+        ethics: {
+          dos: [
+            { icon: "👔", text: "Berpakaian sopan dan tertutup (sebaiknya putih atau gelap)" },
+            { icon: "🙏", text: "Menghormati upacara dari jarak yang pantas" },
+            { icon: "❓", text: "Bertanya kepada pemandu lokal sebelum mendokumentasikan" },
+            { icon: "🤫", text: "Berbicara dengan suara pelan dan tenang" }
+          ],
+          donts: [
+            { icon: "📷", text: "Memotret bagian sensitif atau jenazah tanpa izin" },
+            { icon: "🚷", text: "Memasuki area upacara yang dibatasi" },
+            { icon: "📱", text: "Menggunakan flash kamera atau drone" },
+            { icon: "🗣️", text: "Berbicara keras atau tertawa berlebihan" }
+          ]
+        },
+        faq: [
+          { q: "Apakah Ngaben hanya tentang prosesi pembakaran?", a: "Tidak. Dalam pendekatan edukatif, Ngaben dipahami sebagai rangkaian makna yang lengkap — penghormatan, pelepasan, dan penataan kembali relasi sosial-spiritual, bukan sekadar prosesi visual pembakaran." },
+          { q: "Bolehkah wisatawan menyaksikan upacara Ngaben?", a: "Wisatawan umumnya diperbolehkan menyaksikan dari kejauhan dengan sikap hormat. Namun, etika dokumentasi bergantung pada izin keluarga dan aturan lokal. Jika ragu, hormati dari jauh." },
+          { q: "Mengapa upacara Ngaben terlihat meriah, bukan sedih?", a: "Bagi masyarakat Bali, Ngaben adalah perayaan pelepasan jiwa menuju kehidupan berikutnya. Kesedihan tetap ada, namun diiringi keikhlasan dan harapan akan perjalanan spiritual yang baik." }
         ]
       },
-      {
-        "@type": "Article",
-        "headline": data.title,
-        "description": data.desc,
-        "image": data.hero,
-        "inLanguage": "id",
-        "isPartOf": { "@type":"WebSite", "name":"Bali: The Sacred Veil" },
-        "author": { "@type":"Organization", "name":"Bali: The Sacred Veil" },
-        "publisher": { "@type":"Organization", "name":"Bali: The Sacred Veil" }
-      },
-      {
-        "@type": "FAQPage",
-        "inLanguage": "id",
-        "mainEntity": faqEntities
-      }
-    ]
-  };
 
-  document.querySelector("#jsonld").textContent = JSON.stringify(jsonld, null, 2);
+      // 2) GALUNGAN & KUNINGAN
+      "galungan-kuningan": {
+        type: "Ritual",
+        kicker: "Rituals Beyond Time",
+        title: "Galungan & Kuningan — Siklus Dharma dan Harmoni yang Dipelihara",
+        desc: "Galungan–Kuningan dipahami sebagai siklus nilai: penguatan harmoni, keterikatan komunitas, dan tatanan makna.",
+        hero: "assets/img/ritual-galungan.jpg",
+        back: "rituals.html",
+        opening: "Setiap 210 hari, Bali berubah. Penjor (tiang bambu berhias) menjulang di sepanjang jalan, aroma dupa memenuhi udara, dan keluarga berkumpul. Ini adalah Galungan — saat kebaikan merayakan kemenangannya.",
+        context: "Galungan dan Kuningan adalah hari raya Hindu penting di Bali yang merayakan kemenangan kebaikan (<span class='term' data-tooltip='Kebenaran, kebajikan, dan jalan yang benar'>Dharma</span>) atas kejahatan (<span class='term' data-tooltip='Ketidakbenaran, kekacauan, dan jalan yang salah'>Adharma</span>). Galungan menandai kedatangan leluhur dan dewa ke dunia, sementara Kuningan (10 hari setelahnya) menandai kepulangan mereka.",
+        points: [
+          { icon: "⚔️", text: "Peringatan kemenangan kebenaran (<span class='term' data-tooltip='Kebenaran dan kebajikan'>dharma</span>) melawan kekacauan." },
+          { icon: "⚖️", text: "Penguatan keseimbangan hidup — menata pikiran, sikap, dan tindakan." },
+          { icon: "👻", text: "Kehadiran leluhur secara spiritual untuk memberikan tuntunan dan restu." },
+          { icon: "👨‍👩‍👧‍👦", text: "Penguatan ikatan keluarga dan komunitas melalui tradisi berkumpul." },
+          { icon: "☯️", text: "Cerminan nilai <span class='term' data-tooltip='Tiga penyebab kebahagiaan: hubungan harmonis dengan Tuhan, manusia, dan alam'>Tri Hita Karana</span>." }
+        ],
+        ethics: {
+          dos: [
+            { icon: "👔", text: "Mengenakan pakaian adat jika diundang ke pura" },
+            { icon: "🎁", text: "Membawa oleh-oleh sederhana jika berkunjung ke rumah warga" },
+            { icon: "📸", text: "Meminta izin sebelum memotret upacara atau sesaji" },
+            { icon: "🙏", text: "Menunjukkan sikap hormat saat prosesi berlangsung" }
+          ],
+          donts: [
+            { icon: "🩸", text: "Memasuki pura saat sedang menstruasi atau ada luka terbuka" },
+            { icon: "🚶", text: "Berdiri lebih tinggi dari pendeta saat upacara" },
+            { icon: "👆", text: "Menunjuk dengan jari telunjuk ke arah sesaji atau patung" },
+            { icon: "🦶", text: "Menginjak atau melangkahi sesaji di jalan" }
+          ]
+        },
+        faq: [
+          { q: "Apa inti Galungan & Kuningan dalam satu kalimat?", a: "Siklus penguatan nilai dan harmoni, serta cara komunitas menjaga keteraturan makna melalui praktik dan kebersamaan." },
+          { q: "Apa itu Penjor dan mengapa dipasang saat Galungan?", a: "Penjor adalah tiang bambu berhias yang dipasang di depan rumah sebagai simbol Gunung Agung dan rasa syukur. Dekorasinya melambangkan hasil bumi dan kemakmuran." },
+          { q: "Apakah wisatawan boleh mengunjungi Bali saat Galungan?", a: "Sangat boleh! Ini justru waktu yang bagus untuk melihat budaya Bali. Namun hormati upacara yang sedang berlangsung dan hindari mengganggu prosesi." }
+        ]
+      },
+
+      // 3) KECAK
+      "kecak": {
+        type: "Dance",
+        kicker: "Dances of the Unseen",
+        title: "Kecak — Ritme Kolektif, Emosi, dan Struktur Narasi",
+        desc: "Kecak adalah pengalaman suara dan energi kolektif yang menenun kisah—bukan sekadar tontonan.",
+        hero: "assets/img/kecak.jpg",
+        back: "index.html#overview",
+        opening: "Matahari tenggelam di Uluwatu. Puluhan pria duduk melingkar, tubuh bergerak seirama, mulut mengucapkan 'cak-cak-cak' tanpa henti. Tidak ada gamelan, hanya suara manusia yang menyatu menjadi orkestra. Inilah Kecak.",
+        context: "Kecak adalah tarian tradisional khas Bali yang unik karena tidak menggunakan alat musik, melainkan diiringi suara koor 'cak-cak-cak' dari puluhan penari pria yang membentuk lingkaran. Pertunjukan ini menceritakan kisah <span class='term' data-tooltip='Epos Hindu kuno tentang Pangeran Rama'>Ramayana</span> dengan gerakan energik dan properti api.",
+        points: [
+          { icon: "👥", text: "Energi kolektif sebagai simbol kebersamaan (<span class='term' data-tooltip='Hubungan harmonis antar manusia'>pawongan</span>) dan disiplin ritme." },
+          { icon: "🤝", text: "Simbol kebersamaan sosial — harmoni tercipta melalui keterlibatan bersama." },
+          { icon: "🧘", text: "Pengendalian emosi dan disiplin diri — struktur ritmis menuntut fokus tinggi." },
+          { icon: "🌓", text: "Penghubung <span class='term' data-tooltip='Dunia nyata'>Sekala</span> dan <span class='term' data-tooltip='Dimensi spiritual'>Niskala</span> dalam penyajiannya." },
+          { icon: "🏛️", text: "Warisan budaya yang hidup dan terus berkembang sebagai identitas Nusantara." }
+        ],
+        ethics: {
+          dos: [
+            { icon: "👏", text: "Bertepuk tangan di akhir pertunjukan sebagai apresiasi" },
+            { icon: "🪑", text: "Duduk di tempat yang disediakan panitia" },
+            { icon: "📸", text: "Memotret tanpa flash agar tidak mengganggu penari" },
+            { icon: "⏰", text: "Datang tepat waktu untuk menghormati pertunjukan" }
+          ],
+          donts: [
+            { icon: "📱", text: "Menggunakan flash kamera yang dapat mengganggu penari" },
+            { icon: "🗣️", text: "Berbicara keras selama pertunjukan berlangsung" },
+            { icon: "🚶", text: "Berjalan-jalan di area pertunjukan saat sedang berlangsung" },
+            { icon: "🔥", text: "Mendekati api tanpa izin saat adegan Hanoman" }
+          ]
+        },
+        faq: [
+          { q: "Mengapa Kecak terasa 'mendalam' meski tanpa instrumen?", a: "Karena struktur koor dan ritmenya membangun atmosfer yang intens. Pola suara yang terorganisir dari puluhan orang dapat memicu respons emosi yang kuat, seperti musik instrumental." },
+          { q: "Dari mana asal tarian Kecak?", a: "Kecak dikembangkan pada tahun 1930-an oleh seniman Bali bekerja sama dengan pelukis Jerman Walter Spies. Akarnya berasal dari ritual trance Sanghyang, namun diadaptasi menjadi pertunjukan naratif." },
+          { q: "Di mana tempat terbaik menonton Kecak?", a: "Uluwatu saat matahari terbenam adalah lokasi paling ikonik. Selain itu, Tanah Lot dan berbagai panggung di Ubud juga menawarkan pertunjukan berkualitas." }
+        ]
+      },
+
+      // 4) BARONG
+      "barong": {
+        type: "Dance",
+        kicker: "Dances of the Unseen",
+        title: "Barong — Simbol Penjagaan dan Keseimbangan",
+        desc: "Barong mengajak kita memahami keseimbangan—bukan kemenangan mutlak, melainkan perawatan harmoni.",
+        hero: "assets/img/barong.jpg",
+        back: "index.html#overview",
+        opening: "Makhluk berbulu dengan mata besar menatap Anda. Bukan menakutkan — justru mengayomi. Di sampingnya, sosok menyeramkan dengan lidah menjulur. Mereka bukan musuh, mereka adalah dua sisi mata uang yang sama: keseimbangan.",
+        context: "Barong adalah makhluk mitologi Hindu yang melambangkan kebaikan dan pelindung dalam tarian sakral. Pertunjukan ini menggambarkan pertarungan abadi antara <span class='term' data-tooltip='Simbol kebaikan dan pelindung'>Barong</span> dan <span class='term' data-tooltip='Ratu penyihir, simbol kekuatan destruktif'>Rangda</span>, representasi filosofis dari <span class='term' data-tooltip='Konsep dualitas dalam Hindu Bali'>Ruwa Bineda</span> (dualitas).",
+        points: [
+          { icon: "🛡️", text: "Simbol Penjaga Keseimbangan antara kekuatan positif dan negatif." },
+          { icon: "⚖️", text: "Perwujudan nilai <span class='term' data-tooltip='Kebenaran dan kebajikan'>Dharma</span> sebagai pedoman hidup." },
+          { icon: "🚧", text: "Pengingat etika dan batas kehidupan — pentingnya kendali diri dan tanggung jawab." }
+        ],
+        ethics: {
+          dos: [
+            { icon: "🙏", text: "Menghormati topeng Barong sebagai benda sakral" },
+            { icon: "👏", text: "Memberikan apresiasi kepada penari setelah pertunjukan" },
+            { icon: "📖", text: "Mempelajari konteks cerita sebelum menonton" },
+            { icon: "🧘", text: "Menyaksikan dengan pikiran terbuka" }
+          ],
+          donts: [
+            { icon: "👆", text: "Menyentuh topeng atau kostum tanpa izin" },
+            { icon: "😂", text: "Menertawakan gerakan atau ekspresi penari" },
+            { icon: "🏃", text: "Berlari ke area panggung saat pertunjukan" },
+            { icon: "📢", text: "Membuat komentar yang merendahkan kepercayaan" }
+          ]
+        },
+        faq: [
+          { q: "Apakah Barong selalu dimaknai sebagai 'baik' dan Rangda sebagai 'jahat'?", a: "Tidak sesederhana itu. Dalam filosofi Bali, keduanya adalah kekuatan yang saling melengkapi. Barong adalah pelindung, Rangda adalah kekuatan alam yang perlu diseimbangkan — bukan dihancurkan." },
+          { q: "Mengapa pertarungan Barong dan Rangda tidak pernah ada pemenang?", a: "Karena filosofinya adalah keseimbangan abadi. Kebaikan dan keburukan akan selalu ada, tugas manusia adalah menjaga keseimbangan, bukan menghilangkan salah satunya." },
+          { q: "Apakah topeng Barong sakral?", a: "Ya, topeng Barong tertentu dianggap memiliki kekuatan spiritual dan disimpan di pura. Topeng untuk pertunjukan wisata biasanya berbeda dari topeng sakral untuk upacara." }
+        ]
+      },
+
+      // 5) LEGONG
+      "legong": {
+        type: "Dance",
+        kicker: "Dances of the Unseen",
+        title: "Legong — Presisi, Keanggunan, dan Bahasa Simbol",
+        desc: "Legong menekankan detail: gerak, ekspresi, dan struktur yang menuntun makna.",
+        hero: "assets/img/legong.jpg",
+        back: "index.html#overview",
+        opening: "Mata bergerak tajam ke kanan. Jari-jari melengkung sempurna. Setiap gerakan sekecil kedipan mata memiliki makna. Ini bukan sekadar tarian — ini adalah bahasa yang diucapkan dengan tubuh.",
+        context: "Tari Legong adalah tarian klasik Bali yang anggun dan ekspresif, berasal dari lingkungan keraton pada abad ke-19. Gerakan lincah penari wanita muda diiringi musik <span class='term' data-tooltip='Orkestra gamelan khusus untuk tari istana'>Gamelan Semar Pagulingan</span>. Kata 'legong' berasal dari 'leg' (gerak luwes) dan 'gong' (gamelan).",
+        points: [
+          { icon: "🦢", text: "Simbol kehalusan dan keanggunan — keindahan gerak yang halus dan terkontrol." },
+          { icon: "👁️", text: "Bahasa simbol dalam gerak tubuh — mata, tangan, dan posisi menyampaikan cerita." },
+          { icon: "🎵", text: "Keterkaitan musik–gerak — ritme menuntun struktur emosi dan narasi." }
+        ],
+        ethics: {
+          dos: [
+            { icon: "👀", text: "Memperhatikan detail gerakan mata dan tangan penari" },
+            { icon: "🤫", text: "Menjaga keheningan selama pertunjukan" },
+            { icon: "📖", text: "Membaca sinopsis cerita yang biasanya disediakan" },
+            { icon: "👏", text: "Memberikan tepuk tangan di akhir pertunjukan" }
+          ],
+          donts: [
+            { icon: "📱", text: "Mengobrol atau bermain ponsel saat pertunjukan" },
+            { icon: "🚶", text: "Berjalan keluar-masuk selama tarian berlangsung" },
+            { icon: "📸", text: "Menggunakan flash yang mengganggu konsentrasi penari" },
+            { icon: "😴", text: "Menunjukkan kebosanan secara terang-terangan" }
+          ]
+        },
+        faq: [
+          { q: "Mengapa Legong disebut 'presisi'?", a: "Karena setiap gerak, timing, dan ekspresi dibangun dengan kontrol tinggi. Bahkan gerakan mata dan jari memiliki aturan ketat. Presisi ini membantu menyampaikan makna secara konsisten." },
+          { q: "Berapa lama latihan menjadi penari Legong?", a: "Penari Legong biasanya mulai berlatih sejak usia 5-7 tahun. Diperlukan bertahun-tahun latihan untuk menguasai gerakan dan ekspresi yang sangat detail." },
+          { q: "Apa perbedaan Legong dengan tarian Bali lainnya?", a: "Legong lebih menekankan kehalusan dan detail gerakan kecil, terutama mata dan jari. Berbeda dengan Kecak yang energik atau Barong yang dramatis." }
+        ]
+      },
+
+      // 6) SEKALA / NISKALA
+      "sekala-niskala": {
+        type: "Concept",
+        kicker: "Between Sekala & Niskala",
+        title: "Sekala & Niskala — Dua Dimensi Cara Memahami Bali",
+        desc: "Sekala (yang tampak) dan Niskala (yang tak kasat mata) membantu membaca tindakan, etika, dan makna—tanpa sensasional.",
+        hero: "assets/img/og.jpg",
+        back: "index.html#overview",
+        opening: "Anda melihat sesaji di pojok jalan. Itu Sekala — yang tampak. Tapi tahukah Anda bahwa setiap warna bunga, setiap arah peletakan, memiliki makna mendalam? Itulah Niskala — yang tak terlihat namun hadir.",
+        context: "<span class='term' data-tooltip='Dimensi yang terlihat, nyata, dan dapat diamati'>Sekala</span> dan <span class='term' data-tooltip='Dimensi makna, niat, dan relasi spiritual yang tidak tampak'>Niskala</span> adalah konsep fundamental untuk menjelaskan cara pandang Bali. Sekala adalah apa yang terlihat (tindakan, ruang, tata laku), sementara Niskala adalah apa yang tak kasat mata (niat, makna, relasi spiritual).",
+        points: [
+          { icon: "👁️", text: "<span class='term' data-tooltip='Yang terlihat, nyata'>Sekala</span> — ruang dan tindakan yang terlihat, wadah keteraturan dan harmoni." },
+          { icon: "✨", text: "<span class='term' data-tooltip='Yang tak terlihat, spiritual'>Niskala</span> — makna, niat, dan relasi spiritual, dijaga melalui etika." },
+          { icon: "🧠", text: "Keduanya bukan 'misteri untuk sensasi', melainkan kerangka memahami nilai." }
+        ],
+        ethics: {
+          dos: [
+            { icon: "🤔", text: "Memahami bahwa ada makna di balik setiap tindakan" },
+            { icon: "🙏", text: "Menghormati praktik spiritual meski tidak memahami sepenuhnya" },
+            { icon: "❓", text: "Bertanya dengan sopan jika ingin mengetahui makna" },
+            { icon: "👀", text: "Mengamati dengan pikiran terbuka" }
+          ],
+          donts: [
+            { icon: "😱", text: "Menyebut praktik spiritual sebagai 'mistis' atau 'seram'" },
+            { icon: "📢", text: "Membuat klaim paranormal tanpa bukti" },
+            { icon: "😂", text: "Menertawakan kepercayaan yang tidak dipahami" },
+            { icon: "📷", text: "Mendokumentasikan upacara pribadi tanpa izin" }
+          ]
+        },
+        faq: [
+          { q: "Apakah Niskala berarti sesuatu yang 'seram' atau mistis?", a: "Sama sekali tidak. Niskala adalah dimensi makna dan niat yang tidak tampak — seperti cinta yang tidak bisa dilihat tapi terasa. Ini bukan bahan untuk sensasi atau cerita horor." },
+          { q: "Bagaimana menjelaskan Sekala–Niskala untuk wisatawan?", a: "Gunakan contoh sederhana: tindakan memberi sesaji (Sekala) disertai niat tulus dan penghormatan (Niskala). Keduanya harus selaras untuk menciptakan harmoni." },
+          { q: "Mengapa konsep ini penting untuk memahami Bali?", a: "Karena hampir semua praktik budaya Bali memiliki dua dimensi ini. Tanpa memahami Niskala, wisatawan hanya melihat 'pertunjukan' tanpa menangkap esensi." }
+        ]
+      },
+
+      // 7) TRI HITA KARANA
+      "tri-hita-karana": {
+        type: "Concept",
+        kicker: "Harmony as a Practice",
+        title: "Tri Hita Karana — Harmoni sebagai Praktik, Bukan Slogan",
+        desc: "Tri Hita Karana menjelaskan harmoni lewat tiga relasi: manusia–Tuhan, manusia–manusia, manusia–alam.",
+        hero: "assets/img/og.jpg",
+        back: "index.html#overview",
+        opening: "Tiga kata. Tiga hubungan. Satu harmoni. Di Bali, kebahagiaan bukan kebetulan — ia adalah hasil dari menjaga tiga relasi: dengan Yang Maha Kuasa, dengan sesama, dan dengan alam.",
+        context: "<span class='term' data-tooltip='Tiga penyebab kebahagiaan'>Tri Hita Karana</span> adalah prinsip pengikat: harmoni tidak terjadi sendiri, tetapi dipelihara. Konsep ini menjadi benang merah yang menghubungkan ritual, tarian, arsitektur, dan kehidupan sehari-hari masyarakat Bali.",
+        points: [
+          { icon: "🙏", text: "<span class='term' data-tooltip='Hubungan harmonis dengan Tuhan'>Parhyangan</span> — relasi spiritual yang menuntun sikap dan penghormatan." },
+          { icon: "👥", text: "<span class='term' data-tooltip='Hubungan harmonis antar manusia'>Pawongan</span> — relasi sosial, kebersamaan, etika, dan tanggung jawab komunitas." },
+          { icon: "🌿", text: "<span class='term' data-tooltip='Hubungan harmonis dengan alam'>Palemahan</span> — relasi dengan alam, perawatan ruang hidup." }
+        ],
+        ethics: {
+          dos: [
+            { icon: "🌍", text: "Menjaga kebersihan lingkungan saat berkunjung" },
+            { icon: "🤝", text: "Berinteraksi dengan warga lokal dengan ramah" },
+            { icon: "🙏", text: "Menghormati tempat ibadah dan upacaranya" },
+            { icon: "💰", text: "Mendukung ekonomi lokal dengan bijak" }
+          ],
+          donts: [
+            { icon: "🗑️", text: "Membuang sampah sembarangan" },
+            { icon: "💢", text: "Bersikap kasar kepada warga lokal" },
+            { icon: "🏛️", text: "Merusak atau mencoret-coret situs budaya" },
+            { icon: "📢", text: "Menggunakan konsep ini sebagai slogan pemasaran semata" }
+          ]
+        },
+        faq: [
+          { q: "Apa inti Tri Hita Karana dalam satu kalimat?", a: "Harmoni dipelihara melalui relasi spiritual, sosial, dan alam secara seimbang — bukan hanya satu dimensi saja." },
+          { q: "Bagaimana Tri Hita Karana terhubung dengan ritual dan tarian?", a: "Ritual menekankan Parhyangan (hubungan spiritual), tarian mengekspresikan Pawongan (kebersamaan sosial), dan pelestarian alam mencerminkan Palemahan. Semuanya saling terhubung." },
+          { q: "Apakah Tri Hita Karana hanya untuk orang Bali?", a: "Tidak! Prinsipnya universal: jaga hubungan baik dengan Tuhan/spiritualitas, sesama manusia, dan alam. Siapapun bisa menerapkannya dalam kehidupan sehari-hari." }
+        ]
+      },
+
+      // 8) TEMPLES (for temples.html link)
+      "temples": {
+        type: "Architecture",
+        kicker: "Temples as Gateways",
+        title: "Pura — Arsitektur Kosmologi dan Gerbang Spiritual",
+        desc: "Arsitektur pura Bali bukan sekadar bangunan, melainkan representasi kosmologi dan tata ruang kehidupan.",
+        hero: "assets/img/temple-hero.jpg",
+        back: "temples.html",
+        opening: "Anda berdiri di depan gerbang tinggi menjulang. Di baliknya, dunia berbeda. Bukan sekadar halaman — melainkan perjalanan dari dunia luar menuju yang sakral. Setiap langkah adalah transisi kesadaran.",
+        context: "Pura di Bali dibangun mengikuti prinsip <span class='term' data-tooltip='Pola kosmologis yang mengatur tata ruang'>mandala</span> dengan pembagian zona yang ketat. Dari <span class='term' data-tooltip='Halaman luar pura, area 'profan''>Jaba Pisan</span> hingga <span class='term' data-tooltip='Halaman paling dalam dan sakral'>Jeroan</span>, setiap area memiliki tingkat kesakralan berbeda.",
+        points: [
+          { icon: "🔲", text: "<span class='term' data-tooltip='Pola kosmologis pengatur ruang'>Mandala zoning</span> — struktur ruang bertingkat yang menuntun sikap dan kesadaran." },
+          { icon: "🚪", text: "<span class='term' data-tooltip='Etika melewati ambang batas'>Threshold ethics</span> — transisi ruang juga transisi batin." },
+          { icon: "🧭", text: "Orientasi <span class='term' data-tooltip='Arah gunung, dianggap suci'>Kaja</span>-<span class='term' data-tooltip='Arah laut'>Kelod</span> menentukan hierarki kesakralan." }
+        ],
+        ethics: {
+          dos: [
+            { icon: "👔", text: "Mengenakan kain sarung dan selendang" },
+            { icon: "🙏", text: "Menundukkan kepala saat melewati pemangku" },
+            { icon: "👟", text: "Melepas alas kaki di area tertentu" },
+            { icon: "🤫", text: "Berbicara dengan suara pelan" }
+          ],
+          donts: [
+            { icon: "🩸", text: "Memasuki pura saat menstruasi atau ada luka" },
+            { icon: "📸", text: "Memotret area terlarang atau upacara privat" },
+            { icon: "👆", text: "Menunjuk dengan tangan kiri atau kaki" },
+            { icon: "🧍", text: "Berdiri lebih tinggi dari altar atau pemangku" }
+          ]
+        },
+        faq: [
+          { q: "Mengapa harus memakai sarung untuk masuk pura?", a: "Sarung dan selendang adalah bentuk penghormatan. Sarung menyimbolkan kesederhanaan, selendang (anteng) mengikat niat baik. Ini menunjukkan kesiapan batin memasuki ruang sakral." },
+          { q: "Bolehkah wisatawan non-Hindu masuk pura?", a: "Kebanyakan pura memperbolehkan wisatawan di area tertentu. Namun area paling dalam (Jeroan) biasanya hanya untuk umat Hindu yang bersembahyang. Selalu ikuti petunjuk lokal." },
+          { q: "Apa yang dimaksud 'candi bentar' dan 'kori agung'?", a: "Candi bentar adalah gerbang terbelah (tanpa atap) di pintu masuk pertama. Kori agung adalah gerbang tertutup dengan pintu yang menandai area lebih sakral." }
+        ]
+      },
+
+      // 9) RUWA BINEDA
+      "ruwa-bineda": {
+        type: "Concept",
+        kicker: "Core Philosophy",
+        title: "Ruwa Bineda — Dualitas Seimbang dalam Budaya Bali",
+        desc: "Konsep dualitas yang tidak bertentangan, melainkan saling melengkapi dan menciptakan keseimbangan.",
+        hero: "assets/img/temple-hero.jpg",
+        back: "index.html#overview",
+        opening: "Terang tidak berarti tanpa gelap. Baik tidak ada tanpa buruk. Di Bali, kontras bukanlah konflik — melainkan harmoni. Inilah Ruwa Bineda, filosofi yang mengajarkan bahwa dualitas adalah keseimbangan.",
+        context: "<span class='term' data-tooltip='Dua hal yang berbeda'>Ruwa Bineda</span> adalah konsep filosofis Bali yang mengakui keberadaan dua kekuatan berlawanan yang saling melengkapi. Seperti siang-malam, laki-perempuan, <span class='term' data-tooltip='Dunia nyata'>Sekala</span>-<span class='term' data-tooltip='Dunia tak terlihat'>Niskala</span> — keduanya tidak bisa dipisahkan dan membentuk kesatuan yang utuh.",
+        points: [
+          { icon: "☯️", text: "Dualitas Harmonis — dua kekuatan berlawanan yang tidak berkonflik, melainkan saling melengkapi." },
+          { icon: "🌓", text: "Keseimbangan Kosmis — seperti siang dan malam, keduanya diperlukan untuk keberlangsungan." },
+          { icon: "⚖️", text: "Penerapan dalam kehidupan — arsitektur, ritual, bahkan tata letak desa mengikuti prinsip ini." },
+          { icon: "🎭", text: "Tercermin dalam seni — tari Barong (kebaikan) vs Rangda (kejahatan) menunjukkan Ruwa Bineda." },
+          { icon: "🏛️", text: "Arsitektur Pura — pembagian ruang sakral dan profan mencerminkan konsep ini." }
+        ],
+        ethics: {
+          dos: [
+            { icon: "🤔", text: "Memahami bahwa kontras adalah bagian dari harmoni" },
+            { icon: "⚖️", text: "Mencari keseimbangan, bukan dominasi satu sisi" },
+            { icon: "🙏", text: "Menghormati keberagaman perspektif" },
+            { icon: "🌱", text: "Menerapkan prinsip keseimbangan dalam kehidupan sehari-hari" }
+          ],
+          donts: [
+            { icon: "❌", text: "Melihat perbedaan sebagai konflik yang harus dimenangkan" },
+            { icon: "⚡", text: "Mengabaikan salah satu sisi dari dualitas" },
+            { icon: "🚫", text: "Memaksakan satu 'kebenaran' tunggal" },
+            { icon: "💢", text: "Menghakimi tanpa memahami konteks budaya" }
+          ]
+        },
+        faq: [
+          { q: "Apa bedanya Ruwa Bineda dengan konsep yin-yang?", a: "Keduanya memiliki kesamaan filosofis tentang dualitas. Namun Ruwa Bineda memiliki konteks khusus dalam budaya Bali, terintegrasi dalam ritual, arsitektur, dan kehidupan sosial masyarakat Hindu Bali." },
+          { q: "Bagaimana Ruwa Bineda terlihat dalam kehidupan sehari-hari Bali?", a: "Terlihat dalam tata ruang desa (hulu-hilir), orientasi rumah (kaja-kelod), pembagian ritual (suci-tidak suci), dan bahkan dalam pertunjukan seperti Barong vs Rangda yang berakhir tanpa pemenang mutlak." },
+          { q: "Mengapa Barong vs Rangda tidak ada pemenangnya?", a: "Karena keduanya mewakili Ruwa Bineda — kebaikan tidak bisa menghapus kejahatan sepenuhnya, dan sebaliknya. Keduanya akan selalu ada dalam keseimbangan dinamis." }
+        ]
+      }
+    };
+
+    const params = new URLSearchParams(location.search);
+    const key = (params.get("dance") || "kecak").toLowerCase();
+    const data = ARTICLES[key] || ARTICLES["kecak"];
+
+    // Fill basic UI
+    document.title = data.title + " — Bali: The Sacred Veil";
+    document.querySelector("#kicker").textContent = data.kicker;
+    document.querySelector("#title").textContent = data.title;
+    document.querySelector("#desc").textContent = data.desc;
+    document.querySelector("#backLink").setAttribute("href", data.back);
+    document.querySelector("#heroBg").style.backgroundImage = `url('${data.hero}')`;
+
+    // Storytelling opening
+    const storyQuote = document.querySelector("#storyQuote");
+    if (data.opening && storyQuote) {
+      storyQuote.innerHTML = data.opening;
+      storyQuote.classList.remove("hidden");
+    }
+
+    // Context with HTML support for tooltips
+    document.querySelector("#context").innerHTML = data.context;
+
+    // Key points with icons
+    const ul = document.querySelector("#points");
+    ul.innerHTML = "";
+    data.points.forEach(p => {
+      const li = document.createElement("li");
+      if (typeof p === 'object') {
+        li.innerHTML = `<span class="point-icon">${p.icon}</span><span class="point-text">${p.text}</span>`;
+      } else {
+        li.innerHTML = `<span class="point-icon">•</span><span class="point-text">${p}</span>`;
+      }
+      ul.appendChild(li);
+    });
+
+    // Tips Section (Softer Ethics - Redesigned)
+    const tipsGrid = document.querySelector("#tipsGrid");
+    if (data.ethics && typeof data.ethics === 'object' && tipsGrid) {
+      tipsGrid.innerHTML = `
+      <div class="tips-column recommended">
+        <div class="tips-column-header">
+          <span>✨</span> Disarankan
+        </div>
+        <ul class="tips-list">
+          ${data.ethics.dos.map(item => `
+            <li class="tips-item">
+              <div class="tips-icon">${item.icon}</div>
+              <div class="tips-content">
+                <p class="tips-text">${item.text}</p>
+              </div>
+            </li>
+          `).join('')}
+        </ul>
+      </div>
+      <div class="tips-column avoid">
+        <div class="tips-column-header">
+          <span>🙏</span> Sebaiknya Dihindari
+        </div>
+        <ul class="tips-list">
+          ${data.ethics.donts.map(item => `
+            <li class="tips-item">
+              <div class="tips-icon">${item.icon}</div>
+              <div class="tips-content">
+                <p class="tips-text">${item.text}</p>
+              </div>
+            </li>
+          `).join('')}
+        </ul>
+      </div>
+    `;
+    }
+
+    // FAQ Accordion
+    const faqContainer = document.querySelector("#faqContainer");
+    if (data.faq && faqContainer) {
+      faqContainer.innerHTML = data.faq.map((item, i) => `
+      <div class="faq-item" data-faq="${i}">
+        <button class="faq-question" type="button">
+          <span>${item.q}</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>${item.a}</p>
+        </div>
+      </div>
+    `).join('');
+
+      // Add click handlers for accordion
+      faqContainer.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.faq-item');
+          const isOpen = item.classList.contains('is-open');
+
+          // Close all others
+          faqContainer.querySelectorAll('.faq-item').forEach(el => el.classList.remove('is-open'));
+
+          // Toggle current
+          if (!isOpen) {
+            item.classList.add('is-open');
+          }
+        });
+      });
+    }
+
+    // SEO: JSON-LD = BreadcrumbList + Article + FAQPage
+    const faqEntities = (data.faq || []).map(item => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": { "@type": "Answer", "text": item.a }
+    }));
+
+    const jsonld = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "index.html" },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": data.type === "Ritual" ? "Rituals" : (data.type === "Dance" ? "Dances" : "Concepts"),
+              "item": data.type === "Ritual" ? "rituals.html" : "index.html#overview"
+            },
+            { "@type": "ListItem", "position": 3, "name": data.title, "item": "dance-detail.html?dance=" + encodeURIComponent(key) }
+          ]
+        },
+        {
+          "@type": "Article",
+          "headline": data.title,
+          "description": data.desc,
+          "image": data.hero,
+          "inLanguage": "id",
+          "isPartOf": { "@type": "WebSite", "name": "Bali: The Sacred Veil" },
+          "author": { "@type": "Organization", "name": "Bali: The Sacred Veil" },
+          "publisher": { "@type": "Organization", "name": "Bali: The Sacred Veil" }
+        },
+        {
+          "@type": "FAQPage",
+          "inLanguage": "id",
+          "mainEntity": faqEntities
+        }
+      ]
+    };
+
+    document.querySelector("#jsonld").textContent = JSON.stringify(jsonld, null, 2);
   </script>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" aria-label="Kembali ke atas">↑</button>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/publish.js"></script>
 </body>
+
 </html>
