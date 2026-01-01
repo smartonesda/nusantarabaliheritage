@@ -25,6 +25,58 @@
 
   let audioOn = (localStorage.getItem("audioOn") === "1");
 
+  // Restore audio position from localStorage
+  function restoreAudioPosition() {
+    if (!audio) return;
+    const savedPosition = localStorage.getItem("audioPosition");
+    if (savedPosition) {
+      const position = parseFloat(savedPosition);
+      // Only restore if position is valid and audio duration is known
+      if (!isNaN(position) && position > 0) {
+        // Wait for audio metadata to be loaded before setting currentTime
+        if (audio.readyState >= 1) {
+          audio.currentTime = Math.min(position, audio.duration || position);
+        } else {
+          audio.addEventListener("loadedmetadata", () => {
+            audio.currentTime = Math.min(position, audio.duration);
+          }, { once: true });
+        }
+      }
+    }
+  }
+
+  // Save audio position to localStorage periodically and before unload
+  function saveAudioPosition() {
+    if (audio && !audio.paused && audio.currentTime > 0) {
+      localStorage.setItem("audioPosition", audio.currentTime.toString());
+    }
+  }
+
+  // Save position every 2 seconds while playing
+  let audioPositionInterval = null;
+  function startPositionTracking() {
+    if (audioPositionInterval) clearInterval(audioPositionInterval);
+    audioPositionInterval = setInterval(saveAudioPosition, 2000);
+  }
+
+  function stopPositionTracking() {
+    if (audioPositionInterval) {
+      clearInterval(audioPositionInterval);
+      audioPositionInterval = null;
+    }
+  }
+
+  // Save position before page unload
+  window.addEventListener("beforeunload", saveAudioPosition);
+  window.addEventListener("pagehide", saveAudioPosition);
+
+  // Also save when visibility changes (user switches tab)
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      saveAudioPosition();
+    }
+  });
+
   async function fadeAudio(toOn) {
     if (!audio) return;
     const targetVol = toOn ? 0.22 : 0.0;
@@ -33,7 +85,11 @@
 
     if (toOn) {
       audio.volume = 0.0;
-      try { await audio.play(); } catch (_) { }
+      restoreAudioPosition(); // Restore position before playing
+      try { 
+        await audio.play(); 
+        startPositionTracking(); // Start tracking position
+      } catch (_) { }
     }
 
     const timer = setInterval(() => {
@@ -45,6 +101,8 @@
         if (audio.volume <= 0.001) {
           clearInterval(timer);
           audio.pause();
+          stopPositionTracking(); // Stop tracking when paused
+          saveAudioPosition(); // Save final position
         }
       }
     }, interval);
@@ -64,6 +122,11 @@
     });
   }
   renderAudioLabel();
+  
+  // Initialize audio with restored position
+  if (audio) {
+    restoreAudioPosition();
+  }
   if (audioOn) fadeAudio(true);
 
   // ---------- Progress dots (optional) ----------
